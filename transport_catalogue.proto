@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package proto;
+
+import "svg.proto";
+import "transport_router.proto";
+
+message Coordinates {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+message Stop  {
+    uint32 id = 1;
+    Coordinates place = 2;
+}
+
+message Route  {
+    string name  = 1;
+    repeated uint32 stopIds = 2;
+    bool cycled = 3;
+    double direct_length = 4;
+    uint32 length = 5;
+    double curvature = 6;
+    uint32 unique_stop_count = 7;
+}
+
+message Distance {
+    uint32 from = 1;
+    uint32 to = 2;
+    uint32 meters = 3;
+}
+
+message TransportCatalogue {
+    repeated string StopNames = 1;
+    repeated Stop stops = 2;
+    repeated Distance distances = 3;
+    repeated Route routes = 4;
+    RenderSettings res = 5;
+    RoutingSettings rus = 6;
+    RouteFinderData navigationData = 7;
+}

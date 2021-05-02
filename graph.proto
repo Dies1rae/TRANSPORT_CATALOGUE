@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+message EdgeId {
+    uint32 data = 1;
+}
+
+message Weight {
+    uint32 stopCount = 1;
+    uint32 waitTime = 2;
+    uint32 tripTime = 3;
+}

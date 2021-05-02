@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto;
+
+import "graph.proto";
+
+message RoutingSettings {
+    uint32 bus_wait_time = 1;
+    double bus_velocity = 2;
+}
+
+message RouteInternalData {
+    Weight weight = 1;
+    EdgeId prevEdge = 2;
+}
+
+message RouteInternalDataArray {
+    repeated RouteInternalData vector = 1;
+}
+
+message RoutesInternalData {
+    repeated RouteInternalDataArray vector = 1;
+}
+
+message RouteFinderData {
+    RoutesInternalData data = 1;
+}

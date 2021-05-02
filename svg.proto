@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package proto;
+
+message Point {
+    double x = 1;
+    double y = 2;
+}
+
+message Rgba {
+    bool hasOpacity = 1;
+    uint32 r = 2;
+    uint32 g = 3;
+    uint32 b = 4;
+    double opacity = 5;
+}
+
+message Color {
+    oneof data {
+        bool isNone = 1;
+        string name = 2;
+        Rgba rgba = 3;
+    }
+}
+
+message RenderSettings {
+    double width = 1;
+    double height = 2;
+    double padding = 3;
+    double lineWidth = 4;
+    double stopRadius = 5;
+    uint32 busLabelFontSize = 6;
+    Point busLabelOffset = 7;
+    uint32 stopLabelFontSize = 8;
+    Point stopLabelOffset = 9;
+    Color underlayerColor = 10;
+    double underlayerWidth = 11;
+    repeated Color colorPalette = 12;
+}
