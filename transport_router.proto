@@ -11,7 +11,7 @@ message RoutingSettings {
 
 message RouteInternalData {
     Weight weight = 1;
-    EdgeId prevEdge = 2;
+    EdgeId prev_edge = 2;
 }
 
 message RouteInternalDataArray {

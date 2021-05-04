@@ -197,25 +197,25 @@ class Coordinates PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kLatitudeFieldNumber = 1,
-    kLongitudeFieldNumber = 2,
+    kLatFieldNumber = 1,
+    kLonFieldNumber = 2,
   };
-  // double latitude = 1;
-  void clear_latitude();
-  double latitude() const;
-  void set_latitude(double value);
+  // double lat = 1;
+  void clear_lat();
+  double lat() const;
+  void set_lat(double value);
   private:
-  double _internal_latitude() const;
-  void _internal_set_latitude(double value);
+  double _internal_lat() const;
+  void _internal_set_lat(double value);
   public:
 
-  // double longitude = 2;
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
+  // double lon = 2;
+  void clear_lon();
+  double lon() const;
+  void set_lon(double value);
   private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
+  double _internal_lon() const;
+  void _internal_set_lon(double value);
   public:
 
   // @@protoc_insertion_point(class_scope:proto.Coordinates)
@@ -225,8 +225,8 @@ class Coordinates PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  double latitude_;
-  double longitude_;
+  double lat_;
+  double lon_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5fcatalogue_2eproto;
 };
@@ -502,7 +502,7 @@ class Route PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kStopIdsFieldNumber = 2,
+    kStopIdFieldNumber = 2,
     kNameFieldNumber = 1,
     kDirectLengthFieldNumber = 4,
     kCycledFieldNumber = 3,
@@ -510,27 +510,27 @@ class Route PROTOBUF_FINAL :
     kCurvatureFieldNumber = 6,
     kUniqueStopCountFieldNumber = 7,
   };
-  // repeated uint32 stopIds = 2;
-  int stopids_size() const;
+  // repeated uint32 stop_id = 2;
+  int stop_id_size() const;
   private:
-  int _internal_stopids_size() const;
+  int _internal_stop_id_size() const;
   public:
-  void clear_stopids();
+  void clear_stop_id();
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_stopids(int index) const;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_stop_id(int index) const;
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      _internal_stopids() const;
-  void _internal_add_stopids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+      _internal_stop_id() const;
+  void _internal_add_stop_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      _internal_mutable_stopids();
+      _internal_mutable_stop_id();
   public:
-  ::PROTOBUF_NAMESPACE_ID::uint32 stopids(int index) const;
-  void set_stopids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
-  void add_stopids(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 stop_id(int index) const;
+  void set_stop_id(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_stop_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-      stopids() const;
+      stop_id() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-      mutable_stopids();
+      mutable_stop_id();
 
   // string name = 1;
   void clear_name();
@@ -600,8 +600,8 @@ class Route PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > stopids_;
-  mutable std::atomic<int> _stopids_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > stop_id_;
+  mutable std::atomic<int> _stop_id_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   double direct_length_;
   bool cycled_;
@@ -893,28 +893,28 @@ class TransportCatalogue PROTOBUF_FINAL :
     kRusFieldNumber = 6,
     kNavigationDataFieldNumber = 7,
   };
-  // repeated string StopNames = 1;
-  int stopnames_size() const;
+  // repeated string stop_names = 1;
+  int stop_names_size() const;
   private:
-  int _internal_stopnames_size() const;
+  int _internal_stop_names_size() const;
   public:
-  void clear_stopnames();
-  const std::string& stopnames(int index) const;
-  std::string* mutable_stopnames(int index);
-  void set_stopnames(int index, const std::string& value);
-  void set_stopnames(int index, std::string&& value);
-  void set_stopnames(int index, const char* value);
-  void set_stopnames(int index, const char* value, size_t size);
-  std::string* add_stopnames();
-  void add_stopnames(const std::string& value);
-  void add_stopnames(std::string&& value);
-  void add_stopnames(const char* value);
-  void add_stopnames(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& stopnames() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_stopnames();
+  void clear_stop_names();
+  const std::string& stop_names(int index) const;
+  std::string* mutable_stop_names(int index);
+  void set_stop_names(int index, const std::string& value);
+  void set_stop_names(int index, std::string&& value);
+  void set_stop_names(int index, const char* value);
+  void set_stop_names(int index, const char* value, size_t size);
+  std::string* add_stop_names();
+  void add_stop_names(const std::string& value);
+  void add_stop_names(std::string&& value);
+  void add_stop_names(const char* value);
+  void add_stop_names(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& stop_names() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_stop_names();
   private:
-  const std::string& _internal_stopnames(int index) const;
-  std::string* _internal_add_stopnames();
+  const std::string& _internal_stop_names(int index) const;
+  std::string* _internal_add_stop_names();
   public:
 
   // repeated .proto.Stop stops = 2;
@@ -1032,7 +1032,7 @@ class TransportCatalogue PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> stopnames_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> stop_names_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Stop > stops_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Distance > distances_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Route > routes_;
@@ -1053,44 +1053,44 @@ class TransportCatalogue PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Coordinates
 
-// double latitude = 1;
-inline void Coordinates::clear_latitude() {
-  latitude_ = 0;
+// double lat = 1;
+inline void Coordinates::clear_lat() {
+  lat_ = 0;
 }
-inline double Coordinates::_internal_latitude() const {
-  return latitude_;
+inline double Coordinates::_internal_lat() const {
+  return lat_;
 }
-inline double Coordinates::latitude() const {
-  // @@protoc_insertion_point(field_get:proto.Coordinates.latitude)
-  return _internal_latitude();
+inline double Coordinates::lat() const {
+  // @@protoc_insertion_point(field_get:proto.Coordinates.lat)
+  return _internal_lat();
 }
-inline void Coordinates::_internal_set_latitude(double value) {
+inline void Coordinates::_internal_set_lat(double value) {
   
-  latitude_ = value;
+  lat_ = value;
 }
-inline void Coordinates::set_latitude(double value) {
-  _internal_set_latitude(value);
-  // @@protoc_insertion_point(field_set:proto.Coordinates.latitude)
+inline void Coordinates::set_lat(double value) {
+  _internal_set_lat(value);
+  // @@protoc_insertion_point(field_set:proto.Coordinates.lat)
 }
 
-// double longitude = 2;
-inline void Coordinates::clear_longitude() {
-  longitude_ = 0;
+// double lon = 2;
+inline void Coordinates::clear_lon() {
+  lon_ = 0;
 }
-inline double Coordinates::_internal_longitude() const {
-  return longitude_;
+inline double Coordinates::_internal_lon() const {
+  return lon_;
 }
-inline double Coordinates::longitude() const {
-  // @@protoc_insertion_point(field_get:proto.Coordinates.longitude)
-  return _internal_longitude();
+inline double Coordinates::lon() const {
+  // @@protoc_insertion_point(field_get:proto.Coordinates.lon)
+  return _internal_lon();
 }
-inline void Coordinates::_internal_set_longitude(double value) {
+inline void Coordinates::_internal_set_lon(double value) {
   
-  longitude_ = value;
+  lon_ = value;
 }
-inline void Coordinates::set_longitude(double value) {
-  _internal_set_longitude(value);
-  // @@protoc_insertion_point(field_set:proto.Coordinates.longitude)
+inline void Coordinates::set_lon(double value) {
+  _internal_set_lon(value);
+  // @@protoc_insertion_point(field_set:proto.Coordinates.lon)
 }
 
 // -------------------------------------------------------------------
@@ -1265,51 +1265,51 @@ inline void Route::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:proto.Route.name)
 }
 
-// repeated uint32 stopIds = 2;
-inline int Route::_internal_stopids_size() const {
-  return stopids_.size();
+// repeated uint32 stop_id = 2;
+inline int Route::_internal_stop_id_size() const {
+  return stop_id_.size();
 }
-inline int Route::stopids_size() const {
-  return _internal_stopids_size();
+inline int Route::stop_id_size() const {
+  return _internal_stop_id_size();
 }
-inline void Route::clear_stopids() {
-  stopids_.Clear();
+inline void Route::clear_stop_id() {
+  stop_id_.Clear();
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Route::_internal_stopids(int index) const {
-  return stopids_.Get(index);
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Route::_internal_stop_id(int index) const {
+  return stop_id_.Get(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Route::stopids(int index) const {
-  // @@protoc_insertion_point(field_get:proto.Route.stopIds)
-  return _internal_stopids(index);
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Route::stop_id(int index) const {
+  // @@protoc_insertion_point(field_get:proto.Route.stop_id)
+  return _internal_stop_id(index);
 }
-inline void Route::set_stopids(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  stopids_.Set(index, value);
-  // @@protoc_insertion_point(field_set:proto.Route.stopIds)
+inline void Route::set_stop_id(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  stop_id_.Set(index, value);
+  // @@protoc_insertion_point(field_set:proto.Route.stop_id)
 }
-inline void Route::_internal_add_stopids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  stopids_.Add(value);
+inline void Route::_internal_add_stop_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  stop_id_.Add(value);
 }
-inline void Route::add_stopids(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_add_stopids(value);
-  // @@protoc_insertion_point(field_add:proto.Route.stopIds)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-Route::_internal_stopids() const {
-  return stopids_;
+inline void Route::add_stop_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_stop_id(value);
+  // @@protoc_insertion_point(field_add:proto.Route.stop_id)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
-Route::stopids() const {
-  // @@protoc_insertion_point(field_list:proto.Route.stopIds)
-  return _internal_stopids();
+Route::_internal_stop_id() const {
+  return stop_id_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+Route::stop_id() const {
+  // @@protoc_insertion_point(field_list:proto.Route.stop_id)
+  return _internal_stop_id();
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-Route::_internal_mutable_stopids() {
-  return &stopids_;
+Route::_internal_mutable_stop_id() {
+  return &stop_id_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
-Route::mutable_stopids() {
-  // @@protoc_insertion_point(field_mutable_list:proto.Route.stopIds)
-  return _internal_mutable_stopids();
+Route::mutable_stop_id() {
+  // @@protoc_insertion_point(field_mutable_list:proto.Route.stop_id)
+  return _internal_mutable_stop_id();
 }
 
 // bool cycled = 3;
@@ -1480,78 +1480,78 @@ inline void Distance::set_meters(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // TransportCatalogue
 
-// repeated string StopNames = 1;
-inline int TransportCatalogue::_internal_stopnames_size() const {
-  return stopnames_.size();
+// repeated string stop_names = 1;
+inline int TransportCatalogue::_internal_stop_names_size() const {
+  return stop_names_.size();
 }
-inline int TransportCatalogue::stopnames_size() const {
-  return _internal_stopnames_size();
+inline int TransportCatalogue::stop_names_size() const {
+  return _internal_stop_names_size();
 }
-inline void TransportCatalogue::clear_stopnames() {
-  stopnames_.Clear();
+inline void TransportCatalogue::clear_stop_names() {
+  stop_names_.Clear();
 }
-inline std::string* TransportCatalogue::add_stopnames() {
-  // @@protoc_insertion_point(field_add_mutable:proto.TransportCatalogue.StopNames)
-  return _internal_add_stopnames();
+inline std::string* TransportCatalogue::add_stop_names() {
+  // @@protoc_insertion_point(field_add_mutable:proto.TransportCatalogue.stop_names)
+  return _internal_add_stop_names();
 }
-inline const std::string& TransportCatalogue::_internal_stopnames(int index) const {
-  return stopnames_.Get(index);
+inline const std::string& TransportCatalogue::_internal_stop_names(int index) const {
+  return stop_names_.Get(index);
 }
-inline const std::string& TransportCatalogue::stopnames(int index) const {
-  // @@protoc_insertion_point(field_get:proto.TransportCatalogue.StopNames)
-  return _internal_stopnames(index);
+inline const std::string& TransportCatalogue::stop_names(int index) const {
+  // @@protoc_insertion_point(field_get:proto.TransportCatalogue.stop_names)
+  return _internal_stop_names(index);
 }
-inline std::string* TransportCatalogue::mutable_stopnames(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.TransportCatalogue.StopNames)
-  return stopnames_.Mutable(index);
+inline std::string* TransportCatalogue::mutable_stop_names(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.TransportCatalogue.stop_names)
+  return stop_names_.Mutable(index);
 }
-inline void TransportCatalogue::set_stopnames(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:proto.TransportCatalogue.StopNames)
-  stopnames_.Mutable(index)->assign(value);
+inline void TransportCatalogue::set_stop_names(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:proto.TransportCatalogue.stop_names)
+  stop_names_.Mutable(index)->assign(value);
 }
-inline void TransportCatalogue::set_stopnames(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:proto.TransportCatalogue.StopNames)
-  stopnames_.Mutable(index)->assign(std::move(value));
+inline void TransportCatalogue::set_stop_names(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:proto.TransportCatalogue.stop_names)
+  stop_names_.Mutable(index)->assign(std::move(value));
 }
-inline void TransportCatalogue::set_stopnames(int index, const char* value) {
+inline void TransportCatalogue::set_stop_names(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  stopnames_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:proto.TransportCatalogue.StopNames)
+  stop_names_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:proto.TransportCatalogue.stop_names)
 }
-inline void TransportCatalogue::set_stopnames(int index, const char* value, size_t size) {
-  stopnames_.Mutable(index)->assign(
+inline void TransportCatalogue::set_stop_names(int index, const char* value, size_t size) {
+  stop_names_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:proto.TransportCatalogue.StopNames)
+  // @@protoc_insertion_point(field_set_pointer:proto.TransportCatalogue.stop_names)
 }
-inline std::string* TransportCatalogue::_internal_add_stopnames() {
-  return stopnames_.Add();
+inline std::string* TransportCatalogue::_internal_add_stop_names() {
+  return stop_names_.Add();
 }
-inline void TransportCatalogue::add_stopnames(const std::string& value) {
-  stopnames_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:proto.TransportCatalogue.StopNames)
+inline void TransportCatalogue::add_stop_names(const std::string& value) {
+  stop_names_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:proto.TransportCatalogue.stop_names)
 }
-inline void TransportCatalogue::add_stopnames(std::string&& value) {
-  stopnames_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:proto.TransportCatalogue.StopNames)
+inline void TransportCatalogue::add_stop_names(std::string&& value) {
+  stop_names_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:proto.TransportCatalogue.stop_names)
 }
-inline void TransportCatalogue::add_stopnames(const char* value) {
+inline void TransportCatalogue::add_stop_names(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  stopnames_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:proto.TransportCatalogue.StopNames)
+  stop_names_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:proto.TransportCatalogue.stop_names)
 }
-inline void TransportCatalogue::add_stopnames(const char* value, size_t size) {
-  stopnames_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:proto.TransportCatalogue.StopNames)
+inline void TransportCatalogue::add_stop_names(const char* value, size_t size) {
+  stop_names_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:proto.TransportCatalogue.stop_names)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-TransportCatalogue::stopnames() const {
-  // @@protoc_insertion_point(field_list:proto.TransportCatalogue.StopNames)
-  return stopnames_;
+TransportCatalogue::stop_names() const {
+  // @@protoc_insertion_point(field_list:proto.TransportCatalogue.stop_names)
+  return stop_names_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-TransportCatalogue::mutable_stopnames() {
-  // @@protoc_insertion_point(field_mutable_list:proto.TransportCatalogue.StopNames)
-  return &stopnames_;
+TransportCatalogue::mutable_stop_names() {
+  // @@protoc_insertion_point(field_mutable_list:proto.TransportCatalogue.stop_names)
+  return &stop_names_;
 }
 
 // repeated .proto.Stop stops = 2;

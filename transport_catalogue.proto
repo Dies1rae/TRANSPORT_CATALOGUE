@@ -6,8 +6,8 @@ import "svg.proto";
 import "transport_router.proto";
 
 message Coordinates {
-    double latitude = 1;
-    double longitude = 2;
+    double lat = 1;
+    double lon = 2;
 }
 
 message Stop  {
@@ -17,7 +17,7 @@ message Stop  {
 
 message Route  {
     string name  = 1;
-    repeated uint32 stopIds = 2;
+    repeated uint32 stop_id = 2;
     bool cycled = 3;
     double direct_length = 4;
     uint32 length = 5;
@@ -32,7 +32,7 @@ message Distance {
 }
 
 message TransportCatalogue {
-    repeated string StopNames = 1;
+    repeated string stop_names = 1;
     repeated Stop stops = 2;
     repeated Distance distances = 3;
     repeated Route routes = 4;

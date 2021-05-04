@@ -365,23 +365,23 @@ class RouteInternalData PROTOBUF_FINAL :
       ::proto::Weight* weight);
   ::proto::Weight* unsafe_arena_release_weight();
 
-  // .proto.EdgeId prevEdge = 2;
-  bool has_prevedge() const;
+  // .proto.EdgeId prev_edge = 2;
+  bool has_prev_edge() const;
   private:
-  bool _internal_has_prevedge() const;
+  bool _internal_has_prev_edge() const;
   public:
-  void clear_prevedge();
-  const ::proto::EdgeId& prevedge() const;
-  ::proto::EdgeId* release_prevedge();
-  ::proto::EdgeId* mutable_prevedge();
-  void set_allocated_prevedge(::proto::EdgeId* prevedge);
+  void clear_prev_edge();
+  const ::proto::EdgeId& prev_edge() const;
+  ::proto::EdgeId* release_prev_edge();
+  ::proto::EdgeId* mutable_prev_edge();
+  void set_allocated_prev_edge(::proto::EdgeId* prev_edge);
   private:
-  const ::proto::EdgeId& _internal_prevedge() const;
-  ::proto::EdgeId* _internal_mutable_prevedge();
+  const ::proto::EdgeId& _internal_prev_edge() const;
+  ::proto::EdgeId* _internal_mutable_prev_edge();
   public:
-  void unsafe_arena_set_allocated_prevedge(
-      ::proto::EdgeId* prevedge);
-  ::proto::EdgeId* unsafe_arena_release_prevedge();
+  void unsafe_arena_set_allocated_prev_edge(
+      ::proto::EdgeId* prev_edge);
+  ::proto::EdgeId* unsafe_arena_release_prev_edge();
 
   // @@protoc_insertion_point(class_scope:proto.RouteInternalData)
  private:
@@ -391,7 +391,7 @@ class RouteInternalData PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::proto::Weight* weight_;
-  ::proto::EdgeId* prevedge_;
+  ::proto::EdgeId* prev_edge_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_transport_5frouter_2eproto;
 };
@@ -965,81 +965,81 @@ inline void RouteInternalData::set_allocated_weight(::proto::Weight* weight) {
   // @@protoc_insertion_point(field_set_allocated:proto.RouteInternalData.weight)
 }
 
-// .proto.EdgeId prevEdge = 2;
-inline bool RouteInternalData::_internal_has_prevedge() const {
-  return this != internal_default_instance() && prevedge_ != nullptr;
+// .proto.EdgeId prev_edge = 2;
+inline bool RouteInternalData::_internal_has_prev_edge() const {
+  return this != internal_default_instance() && prev_edge_ != nullptr;
 }
-inline bool RouteInternalData::has_prevedge() const {
-  return _internal_has_prevedge();
+inline bool RouteInternalData::has_prev_edge() const {
+  return _internal_has_prev_edge();
 }
-inline const ::proto::EdgeId& RouteInternalData::_internal_prevedge() const {
-  const ::proto::EdgeId* p = prevedge_;
+inline const ::proto::EdgeId& RouteInternalData::_internal_prev_edge() const {
+  const ::proto::EdgeId* p = prev_edge_;
   return p != nullptr ? *p : reinterpret_cast<const ::proto::EdgeId&>(
       ::proto::_EdgeId_default_instance_);
 }
-inline const ::proto::EdgeId& RouteInternalData::prevedge() const {
-  // @@protoc_insertion_point(field_get:proto.RouteInternalData.prevEdge)
-  return _internal_prevedge();
+inline const ::proto::EdgeId& RouteInternalData::prev_edge() const {
+  // @@protoc_insertion_point(field_get:proto.RouteInternalData.prev_edge)
+  return _internal_prev_edge();
 }
-inline void RouteInternalData::unsafe_arena_set_allocated_prevedge(
-    ::proto::EdgeId* prevedge) {
+inline void RouteInternalData::unsafe_arena_set_allocated_prev_edge(
+    ::proto::EdgeId* prev_edge) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prevedge_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prev_edge_);
   }
-  prevedge_ = prevedge;
-  if (prevedge) {
+  prev_edge_ = prev_edge;
+  if (prev_edge) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RouteInternalData.prevEdge)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RouteInternalData.prev_edge)
 }
-inline ::proto::EdgeId* RouteInternalData::release_prevedge() {
+inline ::proto::EdgeId* RouteInternalData::release_prev_edge() {
   
-  ::proto::EdgeId* temp = prevedge_;
-  prevedge_ = nullptr;
+  ::proto::EdgeId* temp = prev_edge_;
+  prev_edge_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::proto::EdgeId* RouteInternalData::unsafe_arena_release_prevedge() {
-  // @@protoc_insertion_point(field_release:proto.RouteInternalData.prevEdge)
+inline ::proto::EdgeId* RouteInternalData::unsafe_arena_release_prev_edge() {
+  // @@protoc_insertion_point(field_release:proto.RouteInternalData.prev_edge)
   
-  ::proto::EdgeId* temp = prevedge_;
-  prevedge_ = nullptr;
+  ::proto::EdgeId* temp = prev_edge_;
+  prev_edge_ = nullptr;
   return temp;
 }
-inline ::proto::EdgeId* RouteInternalData::_internal_mutable_prevedge() {
+inline ::proto::EdgeId* RouteInternalData::_internal_mutable_prev_edge() {
   
-  if (prevedge_ == nullptr) {
+  if (prev_edge_ == nullptr) {
     auto* p = CreateMaybeMessage<::proto::EdgeId>(GetArena());
-    prevedge_ = p;
+    prev_edge_ = p;
   }
-  return prevedge_;
+  return prev_edge_;
 }
-inline ::proto::EdgeId* RouteInternalData::mutable_prevedge() {
-  // @@protoc_insertion_point(field_mutable:proto.RouteInternalData.prevEdge)
-  return _internal_mutable_prevedge();
+inline ::proto::EdgeId* RouteInternalData::mutable_prev_edge() {
+  // @@protoc_insertion_point(field_mutable:proto.RouteInternalData.prev_edge)
+  return _internal_mutable_prev_edge();
 }
-inline void RouteInternalData::set_allocated_prevedge(::proto::EdgeId* prevedge) {
+inline void RouteInternalData::set_allocated_prev_edge(::proto::EdgeId* prev_edge) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(prevedge_);
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(prev_edge_);
   }
-  if (prevedge) {
+  if (prev_edge) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prevedge)->GetArena();
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(prev_edge)->GetArena();
     if (message_arena != submessage_arena) {
-      prevedge = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, prevedge, submessage_arena);
+      prev_edge = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, prev_edge, submessage_arena);
     }
     
   } else {
     
   }
-  prevedge_ = prevedge;
-  // @@protoc_insertion_point(field_set_allocated:proto.RouteInternalData.prevEdge)
+  prev_edge_ = prev_edge;
+  // @@protoc_insertion_point(field_set_allocated:proto.RouteInternalData.prev_edge)
 }
 
 // -------------------------------------------------------------------

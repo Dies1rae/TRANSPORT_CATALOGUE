@@ -60,18 +60,18 @@ struct ColorDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ColorDefaultTypeInternal _Color_default_instance_;
 constexpr RenderSettings::RenderSettings(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : colorpalette_()
-  , buslabeloffset_(nullptr)
-  , stoplabeloffset_(nullptr)
-  , underlayercolor_(nullptr)
+  : color_palette_()
+  , bus_label_offset_(nullptr)
+  , stop_label_offset_(nullptr)
+  , underlayer_color_(nullptr)
   , width_(0)
   , height_(0)
   , padding_(0)
-  , linewidth_(0)
-  , stopradius_(0)
-  , buslabelfontsize_(0u)
-  , stoplabelfontsize_(0u)
-  , underlayerwidth_(0){}
+  , line_width_(0)
+  , stop_radius_(0)
+  , bus_label_font_size_(0u)
+  , stop_label_font_size_(0u)
+  , underlayer_width_(0){}
 struct RenderSettingsDefaultTypeInternal {
   constexpr RenderSettingsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -121,15 +121,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_svg_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, width_),
   PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, height_),
   PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, padding_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, linewidth_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stopradius_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, buslabelfontsize_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, buslabeloffset_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stoplabelfontsize_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stoplabeloffset_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, underlayercolor_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, underlayerwidth_),
-  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, colorpalette_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, line_width_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stop_radius_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, bus_label_font_size_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, bus_label_offset_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stop_label_font_size_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, stop_label_offset_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, underlayer_color_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, underlayer_width_),
+  PROTOBUF_FIELD_OFFSET(::proto::RenderSettings, color_palette_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::proto::Point)},
@@ -151,19 +151,20 @@ const char descriptor_table_protodef_svg_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "\001r\030\002 \001(\r\022\t\n\001g\030\003 \001(\r\022\t\n\001b\030\004 \001(\r\022\017\n\007opacit"
   "y\030\005 \001(\001\"N\n\005Color\022\020\n\006isNone\030\001 \001(\010H\000\022\016\n\004na"
   "me\030\002 \001(\tH\000\022\033\n\004rgba\030\003 \001(\0132\013.proto.RgbaH\000B"
-  "\006\n\004data\"\315\002\n\016RenderSettings\022\r\n\005width\030\001 \001("
-  "\001\022\016\n\006height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\021\n\tli"
-  "neWidth\030\004 \001(\001\022\022\n\nstopRadius\030\005 \001(\001\022\030\n\020bus"
-  "LabelFontSize\030\006 \001(\r\022$\n\016busLabelOffset\030\007 "
-  "\001(\0132\014.proto.Point\022\031\n\021stopLabelFontSize\030\010"
-  " \001(\r\022%\n\017stopLabelOffset\030\t \001(\0132\014.proto.Po"
-  "int\022%\n\017underlayerColor\030\n \001(\0132\014.proto.Col"
-  "or\022\027\n\017underlayerWidth\030\013 \001(\001\022\"\n\014colorPale"
-  "tte\030\014 \003(\0132\014.proto.Colorb\006proto3"
+  "\006\n\004data\"\334\002\n\016RenderSettings\022\r\n\005width\030\001 \001("
+  "\001\022\016\n\006height\030\002 \001(\001\022\017\n\007padding\030\003 \001(\001\022\022\n\nli"
+  "ne_width\030\004 \001(\001\022\023\n\013stop_radius\030\005 \001(\001\022\033\n\023b"
+  "us_label_font_size\030\006 \001(\r\022&\n\020bus_label_of"
+  "fset\030\007 \001(\0132\014.proto.Point\022\034\n\024stop_label_f"
+  "ont_size\030\010 \001(\r\022\'\n\021stop_label_offset\030\t \001("
+  "\0132\014.proto.Point\022&\n\020underlayer_color\030\n \001("
+  "\0132\014.proto.Color\022\030\n\020underlayer_width\030\013 \001("
+  "\001\022#\n\rcolor_palette\030\014 \003(\0132\014.proto.Colorb\006"
+  "proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_svg_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_svg_2eproto = {
-  false, false, 551, descriptor_table_protodef_svg_2eproto, "svg.proto", 
+  false, false, 566, descriptor_table_protodef_svg_2eproto, "svg.proto", 
   &descriptor_table_svg_2eproto_once, nullptr, 0, 4,
   schemas, file_default_instances, TableStruct_svg_2eproto::offsets,
   file_level_metadata_svg_2eproto, file_level_enum_descriptors_svg_2eproto, file_level_service_descriptors_svg_2eproto,
@@ -1011,60 +1012,60 @@ void Color::InternalSwap(Color* other) {
 
 class RenderSettings::_Internal {
  public:
-  static const ::proto::Point& buslabeloffset(const RenderSettings* msg);
-  static const ::proto::Point& stoplabeloffset(const RenderSettings* msg);
-  static const ::proto::Color& underlayercolor(const RenderSettings* msg);
+  static const ::proto::Point& bus_label_offset(const RenderSettings* msg);
+  static const ::proto::Point& stop_label_offset(const RenderSettings* msg);
+  static const ::proto::Color& underlayer_color(const RenderSettings* msg);
 };
 
 const ::proto::Point&
-RenderSettings::_Internal::buslabeloffset(const RenderSettings* msg) {
-  return *msg->buslabeloffset_;
+RenderSettings::_Internal::bus_label_offset(const RenderSettings* msg) {
+  return *msg->bus_label_offset_;
 }
 const ::proto::Point&
-RenderSettings::_Internal::stoplabeloffset(const RenderSettings* msg) {
-  return *msg->stoplabeloffset_;
+RenderSettings::_Internal::stop_label_offset(const RenderSettings* msg) {
+  return *msg->stop_label_offset_;
 }
 const ::proto::Color&
-RenderSettings::_Internal::underlayercolor(const RenderSettings* msg) {
-  return *msg->underlayercolor_;
+RenderSettings::_Internal::underlayer_color(const RenderSettings* msg) {
+  return *msg->underlayer_color_;
 }
 RenderSettings::RenderSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  colorpalette_(arena) {
+  color_palette_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:proto.RenderSettings)
 }
 RenderSettings::RenderSettings(const RenderSettings& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      colorpalette_(from.colorpalette_) {
+      color_palette_(from.color_palette_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_buslabeloffset()) {
-    buslabeloffset_ = new ::proto::Point(*from.buslabeloffset_);
+  if (from._internal_has_bus_label_offset()) {
+    bus_label_offset_ = new ::proto::Point(*from.bus_label_offset_);
   } else {
-    buslabeloffset_ = nullptr;
+    bus_label_offset_ = nullptr;
   }
-  if (from._internal_has_stoplabeloffset()) {
-    stoplabeloffset_ = new ::proto::Point(*from.stoplabeloffset_);
+  if (from._internal_has_stop_label_offset()) {
+    stop_label_offset_ = new ::proto::Point(*from.stop_label_offset_);
   } else {
-    stoplabeloffset_ = nullptr;
+    stop_label_offset_ = nullptr;
   }
-  if (from._internal_has_underlayercolor()) {
-    underlayercolor_ = new ::proto::Color(*from.underlayercolor_);
+  if (from._internal_has_underlayer_color()) {
+    underlayer_color_ = new ::proto::Color(*from.underlayer_color_);
   } else {
-    underlayercolor_ = nullptr;
+    underlayer_color_ = nullptr;
   }
   ::memcpy(&width_, &from.width_,
-    static_cast<size_t>(reinterpret_cast<char*>(&underlayerwidth_) -
-    reinterpret_cast<char*>(&width_)) + sizeof(underlayerwidth_));
+    static_cast<size_t>(reinterpret_cast<char*>(&underlayer_width_) -
+    reinterpret_cast<char*>(&width_)) + sizeof(underlayer_width_));
   // @@protoc_insertion_point(copy_constructor:proto.RenderSettings)
 }
 
 void RenderSettings::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&buslabeloffset_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&underlayerwidth_) -
-    reinterpret_cast<char*>(&buslabeloffset_)) + sizeof(underlayerwidth_));
+    reinterpret_cast<char*>(&bus_label_offset_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&underlayer_width_) -
+    reinterpret_cast<char*>(&bus_label_offset_)) + sizeof(underlayer_width_));
 }
 
 RenderSettings::~RenderSettings() {
@@ -1075,9 +1076,9 @@ RenderSettings::~RenderSettings() {
 
 void RenderSettings::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete buslabeloffset_;
-  if (this != internal_default_instance()) delete stoplabeloffset_;
-  if (this != internal_default_instance()) delete underlayercolor_;
+  if (this != internal_default_instance()) delete bus_label_offset_;
+  if (this != internal_default_instance()) delete stop_label_offset_;
+  if (this != internal_default_instance()) delete underlayer_color_;
 }
 
 void RenderSettings::ArenaDtor(void* object) {
@@ -1096,22 +1097,22 @@ void RenderSettings::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  colorpalette_.Clear();
-  if (GetArena() == nullptr && buslabeloffset_ != nullptr) {
-    delete buslabeloffset_;
+  color_palette_.Clear();
+  if (GetArena() == nullptr && bus_label_offset_ != nullptr) {
+    delete bus_label_offset_;
   }
-  buslabeloffset_ = nullptr;
-  if (GetArena() == nullptr && stoplabeloffset_ != nullptr) {
-    delete stoplabeloffset_;
+  bus_label_offset_ = nullptr;
+  if (GetArena() == nullptr && stop_label_offset_ != nullptr) {
+    delete stop_label_offset_;
   }
-  stoplabeloffset_ = nullptr;
-  if (GetArena() == nullptr && underlayercolor_ != nullptr) {
-    delete underlayercolor_;
+  stop_label_offset_ = nullptr;
+  if (GetArena() == nullptr && underlayer_color_ != nullptr) {
+    delete underlayer_color_;
   }
-  underlayercolor_ = nullptr;
+  underlayer_color_ = nullptr;
   ::memset(&width_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&underlayerwidth_) -
-      reinterpret_cast<char*>(&width_)) + sizeof(underlayerwidth_));
+      reinterpret_cast<char*>(&underlayer_width_) -
+      reinterpret_cast<char*>(&width_)) + sizeof(underlayer_width_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1143,69 +1144,69 @@ const char* RenderSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // double lineWidth = 4;
+      // double line_width = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
-          linewidth_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          line_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // double stopRadius = 5;
+      // double stop_radius = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
-          stopradius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          stop_radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // uint32 busLabelFontSize = 6;
+      // uint32 bus_label_font_size = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
-          buslabelfontsize_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          bus_label_font_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .proto.Point busLabelOffset = 7;
+      // .proto.Point bus_label_offset = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr = ctx->ParseMessage(_internal_mutable_buslabeloffset(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_bus_label_offset(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 stopLabelFontSize = 8;
+      // uint32 stop_label_font_size = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
-          stoplabelfontsize_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          stop_label_font_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .proto.Point stopLabelOffset = 9;
+      // .proto.Point stop_label_offset = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
-          ptr = ctx->ParseMessage(_internal_mutable_stoplabeloffset(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_stop_label_offset(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .proto.Color underlayerColor = 10;
+      // .proto.Color underlayer_color = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
-          ptr = ctx->ParseMessage(_internal_mutable_underlayercolor(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_underlayer_color(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // double underlayerWidth = 11;
+      // double underlayer_width = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 89)) {
-          underlayerwidth_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          underlayer_width_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // repeated .proto.Color colorPalette = 12;
+      // repeated .proto.Color color_palette = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_colorpalette(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_color_palette(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
@@ -1257,66 +1258,66 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_padding(), target);
   }
 
-  // double lineWidth = 4;
-  if (!(this->linewidth() <= 0 && this->linewidth() >= 0)) {
+  // double line_width = 4;
+  if (!(this->line_width() <= 0 && this->line_width() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_linewidth(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(4, this->_internal_line_width(), target);
   }
 
-  // double stopRadius = 5;
-  if (!(this->stopradius() <= 0 && this->stopradius() >= 0)) {
+  // double stop_radius = 5;
+  if (!(this->stop_radius() <= 0 && this->stop_radius() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_stopradius(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_stop_radius(), target);
   }
 
-  // uint32 busLabelFontSize = 6;
-  if (this->buslabelfontsize() != 0) {
+  // uint32 bus_label_font_size = 6;
+  if (this->bus_label_font_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_buslabelfontsize(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_bus_label_font_size(), target);
   }
 
-  // .proto.Point busLabelOffset = 7;
-  if (this->has_buslabeloffset()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        7, _Internal::buslabeloffset(this), target, stream);
-  }
-
-  // uint32 stopLabelFontSize = 8;
-  if (this->stoplabelfontsize() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_stoplabelfontsize(), target);
-  }
-
-  // .proto.Point stopLabelOffset = 9;
-  if (this->has_stoplabeloffset()) {
+  // .proto.Point bus_label_offset = 7;
+  if (this->has_bus_label_offset()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        9, _Internal::stoplabeloffset(this), target, stream);
+        7, _Internal::bus_label_offset(this), target, stream);
   }
 
-  // .proto.Color underlayerColor = 10;
-  if (this->has_underlayercolor()) {
+  // uint32 stop_label_font_size = 8;
+  if (this->stop_label_font_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_stop_label_font_size(), target);
+  }
+
+  // .proto.Point stop_label_offset = 9;
+  if (this->has_stop_label_offset()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        10, _Internal::underlayercolor(this), target, stream);
+        9, _Internal::stop_label_offset(this), target, stream);
   }
 
-  // double underlayerWidth = 11;
-  if (!(this->underlayerwidth() <= 0 && this->underlayerwidth() >= 0)) {
+  // .proto.Color underlayer_color = 10;
+  if (this->has_underlayer_color()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(11, this->_internal_underlayerwidth(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        10, _Internal::underlayer_color(this), target, stream);
   }
 
-  // repeated .proto.Color colorPalette = 12;
+  // double underlayer_width = 11;
+  if (!(this->underlayer_width() <= 0 && this->underlayer_width() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(11, this->_internal_underlayer_width(), target);
+  }
+
+  // repeated .proto.Color color_palette = 12;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_colorpalette_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->_internal_color_palette_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(12, this->_internal_colorpalette(i), target, stream);
+      InternalWriteMessage(12, this->_internal_color_palette(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1335,32 +1336,32 @@ size_t RenderSettings::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .proto.Color colorPalette = 12;
-  total_size += 1UL * this->_internal_colorpalette_size();
-  for (const auto& msg : this->colorpalette_) {
+  // repeated .proto.Color color_palette = 12;
+  total_size += 1UL * this->_internal_color_palette_size();
+  for (const auto& msg : this->color_palette_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .proto.Point busLabelOffset = 7;
-  if (this->has_buslabeloffset()) {
+  // .proto.Point bus_label_offset = 7;
+  if (this->has_bus_label_offset()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *buslabeloffset_);
+        *bus_label_offset_);
   }
 
-  // .proto.Point stopLabelOffset = 9;
-  if (this->has_stoplabeloffset()) {
+  // .proto.Point stop_label_offset = 9;
+  if (this->has_stop_label_offset()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *stoplabeloffset_);
+        *stop_label_offset_);
   }
 
-  // .proto.Color underlayerColor = 10;
-  if (this->has_underlayercolor()) {
+  // .proto.Color underlayer_color = 10;
+  if (this->has_underlayer_color()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *underlayercolor_);
+        *underlayer_color_);
   }
 
   // double width = 1;
@@ -1378,32 +1379,32 @@ size_t RenderSettings::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // double lineWidth = 4;
-  if (!(this->linewidth() <= 0 && this->linewidth() >= 0)) {
+  // double line_width = 4;
+  if (!(this->line_width() <= 0 && this->line_width() >= 0)) {
     total_size += 1 + 8;
   }
 
-  // double stopRadius = 5;
-  if (!(this->stopradius() <= 0 && this->stopradius() >= 0)) {
+  // double stop_radius = 5;
+  if (!(this->stop_radius() <= 0 && this->stop_radius() >= 0)) {
     total_size += 1 + 8;
   }
 
-  // uint32 busLabelFontSize = 6;
-  if (this->buslabelfontsize() != 0) {
+  // uint32 bus_label_font_size = 6;
+  if (this->bus_label_font_size() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_buslabelfontsize());
+        this->_internal_bus_label_font_size());
   }
 
-  // uint32 stopLabelFontSize = 8;
-  if (this->stoplabelfontsize() != 0) {
+  // uint32 stop_label_font_size = 8;
+  if (this->stop_label_font_size() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_stoplabelfontsize());
+        this->_internal_stop_label_font_size());
   }
 
-  // double underlayerWidth = 11;
-  if (!(this->underlayerwidth() <= 0 && this->underlayerwidth() >= 0)) {
+  // double underlayer_width = 11;
+  if (!(this->underlayer_width() <= 0 && this->underlayer_width() >= 0)) {
     total_size += 1 + 8;
   }
 
@@ -1438,15 +1439,15 @@ void RenderSettings::MergeFrom(const RenderSettings& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  colorpalette_.MergeFrom(from.colorpalette_);
-  if (from.has_buslabeloffset()) {
-    _internal_mutable_buslabeloffset()->::proto::Point::MergeFrom(from._internal_buslabeloffset());
+  color_palette_.MergeFrom(from.color_palette_);
+  if (from.has_bus_label_offset()) {
+    _internal_mutable_bus_label_offset()->::proto::Point::MergeFrom(from._internal_bus_label_offset());
   }
-  if (from.has_stoplabeloffset()) {
-    _internal_mutable_stoplabeloffset()->::proto::Point::MergeFrom(from._internal_stoplabeloffset());
+  if (from.has_stop_label_offset()) {
+    _internal_mutable_stop_label_offset()->::proto::Point::MergeFrom(from._internal_stop_label_offset());
   }
-  if (from.has_underlayercolor()) {
-    _internal_mutable_underlayercolor()->::proto::Color::MergeFrom(from._internal_underlayercolor());
+  if (from.has_underlayer_color()) {
+    _internal_mutable_underlayer_color()->::proto::Color::MergeFrom(from._internal_underlayer_color());
   }
   if (!(from.width() <= 0 && from.width() >= 0)) {
     _internal_set_width(from._internal_width());
@@ -1457,20 +1458,20 @@ void RenderSettings::MergeFrom(const RenderSettings& from) {
   if (!(from.padding() <= 0 && from.padding() >= 0)) {
     _internal_set_padding(from._internal_padding());
   }
-  if (!(from.linewidth() <= 0 && from.linewidth() >= 0)) {
-    _internal_set_linewidth(from._internal_linewidth());
+  if (!(from.line_width() <= 0 && from.line_width() >= 0)) {
+    _internal_set_line_width(from._internal_line_width());
   }
-  if (!(from.stopradius() <= 0 && from.stopradius() >= 0)) {
-    _internal_set_stopradius(from._internal_stopradius());
+  if (!(from.stop_radius() <= 0 && from.stop_radius() >= 0)) {
+    _internal_set_stop_radius(from._internal_stop_radius());
   }
-  if (from.buslabelfontsize() != 0) {
-    _internal_set_buslabelfontsize(from._internal_buslabelfontsize());
+  if (from.bus_label_font_size() != 0) {
+    _internal_set_bus_label_font_size(from._internal_bus_label_font_size());
   }
-  if (from.stoplabelfontsize() != 0) {
-    _internal_set_stoplabelfontsize(from._internal_stoplabelfontsize());
+  if (from.stop_label_font_size() != 0) {
+    _internal_set_stop_label_font_size(from._internal_stop_label_font_size());
   }
-  if (!(from.underlayerwidth() <= 0 && from.underlayerwidth() >= 0)) {
-    _internal_set_underlayerwidth(from._internal_underlayerwidth());
+  if (!(from.underlayer_width() <= 0 && from.underlayer_width() >= 0)) {
+    _internal_set_underlayer_width(from._internal_underlayer_width());
   }
 }
 
@@ -1495,13 +1496,13 @@ bool RenderSettings::IsInitialized() const {
 void RenderSettings::InternalSwap(RenderSettings* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  colorpalette_.InternalSwap(&other->colorpalette_);
+  color_palette_.InternalSwap(&other->color_palette_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RenderSettings, underlayerwidth_)
-      + sizeof(RenderSettings::underlayerwidth_)
-      - PROTOBUF_FIELD_OFFSET(RenderSettings, buslabeloffset_)>(
-          reinterpret_cast<char*>(&buslabeloffset_),
-          reinterpret_cast<char*>(&other->buslabeloffset_));
+      PROTOBUF_FIELD_OFFSET(RenderSettings, underlayer_width_)
+      + sizeof(RenderSettings::underlayer_width_)
+      - PROTOBUF_FIELD_OFFSET(RenderSettings, bus_label_offset_)>(
+          reinterpret_cast<char*>(&bus_label_offset_),
+          reinterpret_cast<char*>(&other->bus_label_offset_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RenderSettings::GetMetadata() const {

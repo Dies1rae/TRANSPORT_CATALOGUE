@@ -737,77 +737,77 @@ class RenderSettings PROTOBUF_FINAL :
     kStopLabelFontSizeFieldNumber = 8,
     kUnderlayerWidthFieldNumber = 11,
   };
-  // repeated .proto.Color colorPalette = 12;
-  int colorpalette_size() const;
+  // repeated .proto.Color color_palette = 12;
+  int color_palette_size() const;
   private:
-  int _internal_colorpalette_size() const;
+  int _internal_color_palette_size() const;
   public:
-  void clear_colorpalette();
-  ::proto::Color* mutable_colorpalette(int index);
+  void clear_color_palette();
+  ::proto::Color* mutable_color_palette(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color >*
-      mutable_colorpalette();
+      mutable_color_palette();
   private:
-  const ::proto::Color& _internal_colorpalette(int index) const;
-  ::proto::Color* _internal_add_colorpalette();
+  const ::proto::Color& _internal_color_palette(int index) const;
+  ::proto::Color* _internal_add_color_palette();
   public:
-  const ::proto::Color& colorpalette(int index) const;
-  ::proto::Color* add_colorpalette();
+  const ::proto::Color& color_palette(int index) const;
+  ::proto::Color* add_color_palette();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color >&
-      colorpalette() const;
+      color_palette() const;
 
-  // .proto.Point busLabelOffset = 7;
-  bool has_buslabeloffset() const;
+  // .proto.Point bus_label_offset = 7;
+  bool has_bus_label_offset() const;
   private:
-  bool _internal_has_buslabeloffset() const;
+  bool _internal_has_bus_label_offset() const;
   public:
-  void clear_buslabeloffset();
-  const ::proto::Point& buslabeloffset() const;
-  ::proto::Point* release_buslabeloffset();
-  ::proto::Point* mutable_buslabeloffset();
-  void set_allocated_buslabeloffset(::proto::Point* buslabeloffset);
+  void clear_bus_label_offset();
+  const ::proto::Point& bus_label_offset() const;
+  ::proto::Point* release_bus_label_offset();
+  ::proto::Point* mutable_bus_label_offset();
+  void set_allocated_bus_label_offset(::proto::Point* bus_label_offset);
   private:
-  const ::proto::Point& _internal_buslabeloffset() const;
-  ::proto::Point* _internal_mutable_buslabeloffset();
+  const ::proto::Point& _internal_bus_label_offset() const;
+  ::proto::Point* _internal_mutable_bus_label_offset();
   public:
-  void unsafe_arena_set_allocated_buslabeloffset(
-      ::proto::Point* buslabeloffset);
-  ::proto::Point* unsafe_arena_release_buslabeloffset();
+  void unsafe_arena_set_allocated_bus_label_offset(
+      ::proto::Point* bus_label_offset);
+  ::proto::Point* unsafe_arena_release_bus_label_offset();
 
-  // .proto.Point stopLabelOffset = 9;
-  bool has_stoplabeloffset() const;
+  // .proto.Point stop_label_offset = 9;
+  bool has_stop_label_offset() const;
   private:
-  bool _internal_has_stoplabeloffset() const;
+  bool _internal_has_stop_label_offset() const;
   public:
-  void clear_stoplabeloffset();
-  const ::proto::Point& stoplabeloffset() const;
-  ::proto::Point* release_stoplabeloffset();
-  ::proto::Point* mutable_stoplabeloffset();
-  void set_allocated_stoplabeloffset(::proto::Point* stoplabeloffset);
+  void clear_stop_label_offset();
+  const ::proto::Point& stop_label_offset() const;
+  ::proto::Point* release_stop_label_offset();
+  ::proto::Point* mutable_stop_label_offset();
+  void set_allocated_stop_label_offset(::proto::Point* stop_label_offset);
   private:
-  const ::proto::Point& _internal_stoplabeloffset() const;
-  ::proto::Point* _internal_mutable_stoplabeloffset();
+  const ::proto::Point& _internal_stop_label_offset() const;
+  ::proto::Point* _internal_mutable_stop_label_offset();
   public:
-  void unsafe_arena_set_allocated_stoplabeloffset(
-      ::proto::Point* stoplabeloffset);
-  ::proto::Point* unsafe_arena_release_stoplabeloffset();
+  void unsafe_arena_set_allocated_stop_label_offset(
+      ::proto::Point* stop_label_offset);
+  ::proto::Point* unsafe_arena_release_stop_label_offset();
 
-  // .proto.Color underlayerColor = 10;
-  bool has_underlayercolor() const;
+  // .proto.Color underlayer_color = 10;
+  bool has_underlayer_color() const;
   private:
-  bool _internal_has_underlayercolor() const;
+  bool _internal_has_underlayer_color() const;
   public:
-  void clear_underlayercolor();
-  const ::proto::Color& underlayercolor() const;
-  ::proto::Color* release_underlayercolor();
-  ::proto::Color* mutable_underlayercolor();
-  void set_allocated_underlayercolor(::proto::Color* underlayercolor);
+  void clear_underlayer_color();
+  const ::proto::Color& underlayer_color() const;
+  ::proto::Color* release_underlayer_color();
+  ::proto::Color* mutable_underlayer_color();
+  void set_allocated_underlayer_color(::proto::Color* underlayer_color);
   private:
-  const ::proto::Color& _internal_underlayercolor() const;
-  ::proto::Color* _internal_mutable_underlayercolor();
+  const ::proto::Color& _internal_underlayer_color() const;
+  ::proto::Color* _internal_mutable_underlayer_color();
   public:
-  void unsafe_arena_set_allocated_underlayercolor(
-      ::proto::Color* underlayercolor);
-  ::proto::Color* unsafe_arena_release_underlayercolor();
+  void unsafe_arena_set_allocated_underlayer_color(
+      ::proto::Color* underlayer_color);
+  ::proto::Color* unsafe_arena_release_underlayer_color();
 
   // double width = 1;
   void clear_width();
@@ -836,49 +836,49 @@ class RenderSettings PROTOBUF_FINAL :
   void _internal_set_padding(double value);
   public:
 
-  // double lineWidth = 4;
-  void clear_linewidth();
-  double linewidth() const;
-  void set_linewidth(double value);
+  // double line_width = 4;
+  void clear_line_width();
+  double line_width() const;
+  void set_line_width(double value);
   private:
-  double _internal_linewidth() const;
-  void _internal_set_linewidth(double value);
+  double _internal_line_width() const;
+  void _internal_set_line_width(double value);
   public:
 
-  // double stopRadius = 5;
-  void clear_stopradius();
-  double stopradius() const;
-  void set_stopradius(double value);
+  // double stop_radius = 5;
+  void clear_stop_radius();
+  double stop_radius() const;
+  void set_stop_radius(double value);
   private:
-  double _internal_stopradius() const;
-  void _internal_set_stopradius(double value);
+  double _internal_stop_radius() const;
+  void _internal_set_stop_radius(double value);
   public:
 
-  // uint32 busLabelFontSize = 6;
-  void clear_buslabelfontsize();
-  ::PROTOBUF_NAMESPACE_ID::uint32 buslabelfontsize() const;
-  void set_buslabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 bus_label_font_size = 6;
+  void clear_bus_label_font_size();
+  ::PROTOBUF_NAMESPACE_ID::uint32 bus_label_font_size() const;
+  void set_bus_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_buslabelfontsize() const;
-  void _internal_set_buslabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_bus_label_font_size() const;
+  void _internal_set_bus_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // uint32 stopLabelFontSize = 8;
-  void clear_stoplabelfontsize();
-  ::PROTOBUF_NAMESPACE_ID::uint32 stoplabelfontsize() const;
-  void set_stoplabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // uint32 stop_label_font_size = 8;
+  void clear_stop_label_font_size();
+  ::PROTOBUF_NAMESPACE_ID::uint32 stop_label_font_size() const;
+  void set_stop_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_stoplabelfontsize() const;
-  void _internal_set_stoplabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_stop_label_font_size() const;
+  void _internal_set_stop_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // double underlayerWidth = 11;
-  void clear_underlayerwidth();
-  double underlayerwidth() const;
-  void set_underlayerwidth(double value);
+  // double underlayer_width = 11;
+  void clear_underlayer_width();
+  double underlayer_width() const;
+  void set_underlayer_width(double value);
   private:
-  double _internal_underlayerwidth() const;
-  void _internal_set_underlayerwidth(double value);
+  double _internal_underlayer_width() const;
+  void _internal_set_underlayer_width(double value);
   public:
 
   // @@protoc_insertion_point(class_scope:proto.RenderSettings)
@@ -888,18 +888,18 @@ class RenderSettings PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color > colorpalette_;
-  ::proto::Point* buslabeloffset_;
-  ::proto::Point* stoplabeloffset_;
-  ::proto::Color* underlayercolor_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color > color_palette_;
+  ::proto::Point* bus_label_offset_;
+  ::proto::Point* stop_label_offset_;
+  ::proto::Color* underlayer_color_;
   double width_;
   double height_;
   double padding_;
-  double linewidth_;
-  double stopradius_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 buslabelfontsize_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 stoplabelfontsize_;
-  double underlayerwidth_;
+  double line_width_;
+  double stop_radius_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 bus_label_font_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 stop_label_font_size_;
+  double underlayer_width_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_svg_2eproto;
 };
@@ -1356,392 +1356,392 @@ inline void RenderSettings::set_padding(double value) {
   // @@protoc_insertion_point(field_set:proto.RenderSettings.padding)
 }
 
-// double lineWidth = 4;
-inline void RenderSettings::clear_linewidth() {
-  linewidth_ = 0;
+// double line_width = 4;
+inline void RenderSettings::clear_line_width() {
+  line_width_ = 0;
 }
-inline double RenderSettings::_internal_linewidth() const {
-  return linewidth_;
+inline double RenderSettings::_internal_line_width() const {
+  return line_width_;
 }
-inline double RenderSettings::linewidth() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.lineWidth)
-  return _internal_linewidth();
+inline double RenderSettings::line_width() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.line_width)
+  return _internal_line_width();
 }
-inline void RenderSettings::_internal_set_linewidth(double value) {
+inline void RenderSettings::_internal_set_line_width(double value) {
   
-  linewidth_ = value;
+  line_width_ = value;
 }
-inline void RenderSettings::set_linewidth(double value) {
-  _internal_set_linewidth(value);
-  // @@protoc_insertion_point(field_set:proto.RenderSettings.lineWidth)
+inline void RenderSettings::set_line_width(double value) {
+  _internal_set_line_width(value);
+  // @@protoc_insertion_point(field_set:proto.RenderSettings.line_width)
 }
 
-// double stopRadius = 5;
-inline void RenderSettings::clear_stopradius() {
-  stopradius_ = 0;
+// double stop_radius = 5;
+inline void RenderSettings::clear_stop_radius() {
+  stop_radius_ = 0;
 }
-inline double RenderSettings::_internal_stopradius() const {
-  return stopradius_;
+inline double RenderSettings::_internal_stop_radius() const {
+  return stop_radius_;
 }
-inline double RenderSettings::stopradius() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.stopRadius)
-  return _internal_stopradius();
+inline double RenderSettings::stop_radius() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.stop_radius)
+  return _internal_stop_radius();
 }
-inline void RenderSettings::_internal_set_stopradius(double value) {
+inline void RenderSettings::_internal_set_stop_radius(double value) {
   
-  stopradius_ = value;
+  stop_radius_ = value;
 }
-inline void RenderSettings::set_stopradius(double value) {
-  _internal_set_stopradius(value);
-  // @@protoc_insertion_point(field_set:proto.RenderSettings.stopRadius)
+inline void RenderSettings::set_stop_radius(double value) {
+  _internal_set_stop_radius(value);
+  // @@protoc_insertion_point(field_set:proto.RenderSettings.stop_radius)
 }
 
-// uint32 busLabelFontSize = 6;
-inline void RenderSettings::clear_buslabelfontsize() {
-  buslabelfontsize_ = 0u;
+// uint32 bus_label_font_size = 6;
+inline void RenderSettings::clear_bus_label_font_size() {
+  bus_label_font_size_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::_internal_buslabelfontsize() const {
-  return buslabelfontsize_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::_internal_bus_label_font_size() const {
+  return bus_label_font_size_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::buslabelfontsize() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.busLabelFontSize)
-  return _internal_buslabelfontsize();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::bus_label_font_size() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.bus_label_font_size)
+  return _internal_bus_label_font_size();
 }
-inline void RenderSettings::_internal_set_buslabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void RenderSettings::_internal_set_bus_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  buslabelfontsize_ = value;
+  bus_label_font_size_ = value;
 }
-inline void RenderSettings::set_buslabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_buslabelfontsize(value);
-  // @@protoc_insertion_point(field_set:proto.RenderSettings.busLabelFontSize)
+inline void RenderSettings::set_bus_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_bus_label_font_size(value);
+  // @@protoc_insertion_point(field_set:proto.RenderSettings.bus_label_font_size)
 }
 
-// .proto.Point busLabelOffset = 7;
-inline bool RenderSettings::_internal_has_buslabeloffset() const {
-  return this != internal_default_instance() && buslabeloffset_ != nullptr;
+// .proto.Point bus_label_offset = 7;
+inline bool RenderSettings::_internal_has_bus_label_offset() const {
+  return this != internal_default_instance() && bus_label_offset_ != nullptr;
 }
-inline bool RenderSettings::has_buslabeloffset() const {
-  return _internal_has_buslabeloffset();
+inline bool RenderSettings::has_bus_label_offset() const {
+  return _internal_has_bus_label_offset();
 }
-inline void RenderSettings::clear_buslabeloffset() {
-  if (GetArena() == nullptr && buslabeloffset_ != nullptr) {
-    delete buslabeloffset_;
+inline void RenderSettings::clear_bus_label_offset() {
+  if (GetArena() == nullptr && bus_label_offset_ != nullptr) {
+    delete bus_label_offset_;
   }
-  buslabeloffset_ = nullptr;
+  bus_label_offset_ = nullptr;
 }
-inline const ::proto::Point& RenderSettings::_internal_buslabeloffset() const {
-  const ::proto::Point* p = buslabeloffset_;
+inline const ::proto::Point& RenderSettings::_internal_bus_label_offset() const {
+  const ::proto::Point* p = bus_label_offset_;
   return p != nullptr ? *p : reinterpret_cast<const ::proto::Point&>(
       ::proto::_Point_default_instance_);
 }
-inline const ::proto::Point& RenderSettings::buslabeloffset() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.busLabelOffset)
-  return _internal_buslabeloffset();
+inline const ::proto::Point& RenderSettings::bus_label_offset() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.bus_label_offset)
+  return _internal_bus_label_offset();
 }
-inline void RenderSettings::unsafe_arena_set_allocated_buslabeloffset(
-    ::proto::Point* buslabeloffset) {
+inline void RenderSettings::unsafe_arena_set_allocated_bus_label_offset(
+    ::proto::Point* bus_label_offset) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(buslabeloffset_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(bus_label_offset_);
   }
-  buslabeloffset_ = buslabeloffset;
-  if (buslabeloffset) {
+  bus_label_offset_ = bus_label_offset;
+  if (bus_label_offset) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.busLabelOffset)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.bus_label_offset)
 }
-inline ::proto::Point* RenderSettings::release_buslabeloffset() {
+inline ::proto::Point* RenderSettings::release_bus_label_offset() {
   
-  ::proto::Point* temp = buslabeloffset_;
-  buslabeloffset_ = nullptr;
+  ::proto::Point* temp = bus_label_offset_;
+  bus_label_offset_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::proto::Point* RenderSettings::unsafe_arena_release_buslabeloffset() {
-  // @@protoc_insertion_point(field_release:proto.RenderSettings.busLabelOffset)
+inline ::proto::Point* RenderSettings::unsafe_arena_release_bus_label_offset() {
+  // @@protoc_insertion_point(field_release:proto.RenderSettings.bus_label_offset)
   
-  ::proto::Point* temp = buslabeloffset_;
-  buslabeloffset_ = nullptr;
+  ::proto::Point* temp = bus_label_offset_;
+  bus_label_offset_ = nullptr;
   return temp;
 }
-inline ::proto::Point* RenderSettings::_internal_mutable_buslabeloffset() {
+inline ::proto::Point* RenderSettings::_internal_mutable_bus_label_offset() {
   
-  if (buslabeloffset_ == nullptr) {
+  if (bus_label_offset_ == nullptr) {
     auto* p = CreateMaybeMessage<::proto::Point>(GetArena());
-    buslabeloffset_ = p;
+    bus_label_offset_ = p;
   }
-  return buslabeloffset_;
+  return bus_label_offset_;
 }
-inline ::proto::Point* RenderSettings::mutable_buslabeloffset() {
-  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.busLabelOffset)
-  return _internal_mutable_buslabeloffset();
+inline ::proto::Point* RenderSettings::mutable_bus_label_offset() {
+  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.bus_label_offset)
+  return _internal_mutable_bus_label_offset();
 }
-inline void RenderSettings::set_allocated_buslabeloffset(::proto::Point* buslabeloffset) {
+inline void RenderSettings::set_allocated_bus_label_offset(::proto::Point* bus_label_offset) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete buslabeloffset_;
+    delete bus_label_offset_;
   }
-  if (buslabeloffset) {
+  if (bus_label_offset) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(buslabeloffset);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(bus_label_offset);
     if (message_arena != submessage_arena) {
-      buslabeloffset = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, buslabeloffset, submessage_arena);
+      bus_label_offset = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, bus_label_offset, submessage_arena);
     }
     
   } else {
     
   }
-  buslabeloffset_ = buslabeloffset;
-  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.busLabelOffset)
+  bus_label_offset_ = bus_label_offset;
+  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.bus_label_offset)
 }
 
-// uint32 stopLabelFontSize = 8;
-inline void RenderSettings::clear_stoplabelfontsize() {
-  stoplabelfontsize_ = 0u;
+// uint32 stop_label_font_size = 8;
+inline void RenderSettings::clear_stop_label_font_size() {
+  stop_label_font_size_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::_internal_stoplabelfontsize() const {
-  return stoplabelfontsize_;
+inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::_internal_stop_label_font_size() const {
+  return stop_label_font_size_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::stoplabelfontsize() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.stopLabelFontSize)
-  return _internal_stoplabelfontsize();
+inline ::PROTOBUF_NAMESPACE_ID::uint32 RenderSettings::stop_label_font_size() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.stop_label_font_size)
+  return _internal_stop_label_font_size();
 }
-inline void RenderSettings::_internal_set_stoplabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void RenderSettings::_internal_set_stop_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
-  stoplabelfontsize_ = value;
+  stop_label_font_size_ = value;
 }
-inline void RenderSettings::set_stoplabelfontsize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_stoplabelfontsize(value);
-  // @@protoc_insertion_point(field_set:proto.RenderSettings.stopLabelFontSize)
+inline void RenderSettings::set_stop_label_font_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_stop_label_font_size(value);
+  // @@protoc_insertion_point(field_set:proto.RenderSettings.stop_label_font_size)
 }
 
-// .proto.Point stopLabelOffset = 9;
-inline bool RenderSettings::_internal_has_stoplabeloffset() const {
-  return this != internal_default_instance() && stoplabeloffset_ != nullptr;
+// .proto.Point stop_label_offset = 9;
+inline bool RenderSettings::_internal_has_stop_label_offset() const {
+  return this != internal_default_instance() && stop_label_offset_ != nullptr;
 }
-inline bool RenderSettings::has_stoplabeloffset() const {
-  return _internal_has_stoplabeloffset();
+inline bool RenderSettings::has_stop_label_offset() const {
+  return _internal_has_stop_label_offset();
 }
-inline void RenderSettings::clear_stoplabeloffset() {
-  if (GetArena() == nullptr && stoplabeloffset_ != nullptr) {
-    delete stoplabeloffset_;
+inline void RenderSettings::clear_stop_label_offset() {
+  if (GetArena() == nullptr && stop_label_offset_ != nullptr) {
+    delete stop_label_offset_;
   }
-  stoplabeloffset_ = nullptr;
+  stop_label_offset_ = nullptr;
 }
-inline const ::proto::Point& RenderSettings::_internal_stoplabeloffset() const {
-  const ::proto::Point* p = stoplabeloffset_;
+inline const ::proto::Point& RenderSettings::_internal_stop_label_offset() const {
+  const ::proto::Point* p = stop_label_offset_;
   return p != nullptr ? *p : reinterpret_cast<const ::proto::Point&>(
       ::proto::_Point_default_instance_);
 }
-inline const ::proto::Point& RenderSettings::stoplabeloffset() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.stopLabelOffset)
-  return _internal_stoplabeloffset();
+inline const ::proto::Point& RenderSettings::stop_label_offset() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.stop_label_offset)
+  return _internal_stop_label_offset();
 }
-inline void RenderSettings::unsafe_arena_set_allocated_stoplabeloffset(
-    ::proto::Point* stoplabeloffset) {
+inline void RenderSettings::unsafe_arena_set_allocated_stop_label_offset(
+    ::proto::Point* stop_label_offset) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(stoplabeloffset_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(stop_label_offset_);
   }
-  stoplabeloffset_ = stoplabeloffset;
-  if (stoplabeloffset) {
+  stop_label_offset_ = stop_label_offset;
+  if (stop_label_offset) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.stopLabelOffset)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.stop_label_offset)
 }
-inline ::proto::Point* RenderSettings::release_stoplabeloffset() {
+inline ::proto::Point* RenderSettings::release_stop_label_offset() {
   
-  ::proto::Point* temp = stoplabeloffset_;
-  stoplabeloffset_ = nullptr;
+  ::proto::Point* temp = stop_label_offset_;
+  stop_label_offset_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::proto::Point* RenderSettings::unsafe_arena_release_stoplabeloffset() {
-  // @@protoc_insertion_point(field_release:proto.RenderSettings.stopLabelOffset)
+inline ::proto::Point* RenderSettings::unsafe_arena_release_stop_label_offset() {
+  // @@protoc_insertion_point(field_release:proto.RenderSettings.stop_label_offset)
   
-  ::proto::Point* temp = stoplabeloffset_;
-  stoplabeloffset_ = nullptr;
+  ::proto::Point* temp = stop_label_offset_;
+  stop_label_offset_ = nullptr;
   return temp;
 }
-inline ::proto::Point* RenderSettings::_internal_mutable_stoplabeloffset() {
+inline ::proto::Point* RenderSettings::_internal_mutable_stop_label_offset() {
   
-  if (stoplabeloffset_ == nullptr) {
+  if (stop_label_offset_ == nullptr) {
     auto* p = CreateMaybeMessage<::proto::Point>(GetArena());
-    stoplabeloffset_ = p;
+    stop_label_offset_ = p;
   }
-  return stoplabeloffset_;
+  return stop_label_offset_;
 }
-inline ::proto::Point* RenderSettings::mutable_stoplabeloffset() {
-  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.stopLabelOffset)
-  return _internal_mutable_stoplabeloffset();
+inline ::proto::Point* RenderSettings::mutable_stop_label_offset() {
+  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.stop_label_offset)
+  return _internal_mutable_stop_label_offset();
 }
-inline void RenderSettings::set_allocated_stoplabeloffset(::proto::Point* stoplabeloffset) {
+inline void RenderSettings::set_allocated_stop_label_offset(::proto::Point* stop_label_offset) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete stoplabeloffset_;
+    delete stop_label_offset_;
   }
-  if (stoplabeloffset) {
+  if (stop_label_offset) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(stoplabeloffset);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(stop_label_offset);
     if (message_arena != submessage_arena) {
-      stoplabeloffset = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, stoplabeloffset, submessage_arena);
+      stop_label_offset = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, stop_label_offset, submessage_arena);
     }
     
   } else {
     
   }
-  stoplabeloffset_ = stoplabeloffset;
-  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.stopLabelOffset)
+  stop_label_offset_ = stop_label_offset;
+  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.stop_label_offset)
 }
 
-// .proto.Color underlayerColor = 10;
-inline bool RenderSettings::_internal_has_underlayercolor() const {
-  return this != internal_default_instance() && underlayercolor_ != nullptr;
+// .proto.Color underlayer_color = 10;
+inline bool RenderSettings::_internal_has_underlayer_color() const {
+  return this != internal_default_instance() && underlayer_color_ != nullptr;
 }
-inline bool RenderSettings::has_underlayercolor() const {
-  return _internal_has_underlayercolor();
+inline bool RenderSettings::has_underlayer_color() const {
+  return _internal_has_underlayer_color();
 }
-inline void RenderSettings::clear_underlayercolor() {
-  if (GetArena() == nullptr && underlayercolor_ != nullptr) {
-    delete underlayercolor_;
+inline void RenderSettings::clear_underlayer_color() {
+  if (GetArena() == nullptr && underlayer_color_ != nullptr) {
+    delete underlayer_color_;
   }
-  underlayercolor_ = nullptr;
+  underlayer_color_ = nullptr;
 }
-inline const ::proto::Color& RenderSettings::_internal_underlayercolor() const {
-  const ::proto::Color* p = underlayercolor_;
+inline const ::proto::Color& RenderSettings::_internal_underlayer_color() const {
+  const ::proto::Color* p = underlayer_color_;
   return p != nullptr ? *p : reinterpret_cast<const ::proto::Color&>(
       ::proto::_Color_default_instance_);
 }
-inline const ::proto::Color& RenderSettings::underlayercolor() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.underlayerColor)
-  return _internal_underlayercolor();
+inline const ::proto::Color& RenderSettings::underlayer_color() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.underlayer_color)
+  return _internal_underlayer_color();
 }
-inline void RenderSettings::unsafe_arena_set_allocated_underlayercolor(
-    ::proto::Color* underlayercolor) {
+inline void RenderSettings::unsafe_arena_set_allocated_underlayer_color(
+    ::proto::Color* underlayer_color) {
   if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(underlayercolor_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(underlayer_color_);
   }
-  underlayercolor_ = underlayercolor;
-  if (underlayercolor) {
+  underlayer_color_ = underlayer_color;
+  if (underlayer_color) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.underlayerColor)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.RenderSettings.underlayer_color)
 }
-inline ::proto::Color* RenderSettings::release_underlayercolor() {
+inline ::proto::Color* RenderSettings::release_underlayer_color() {
   
-  ::proto::Color* temp = underlayercolor_;
-  underlayercolor_ = nullptr;
+  ::proto::Color* temp = underlayer_color_;
+  underlayer_color_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::proto::Color* RenderSettings::unsafe_arena_release_underlayercolor() {
-  // @@protoc_insertion_point(field_release:proto.RenderSettings.underlayerColor)
+inline ::proto::Color* RenderSettings::unsafe_arena_release_underlayer_color() {
+  // @@protoc_insertion_point(field_release:proto.RenderSettings.underlayer_color)
   
-  ::proto::Color* temp = underlayercolor_;
-  underlayercolor_ = nullptr;
+  ::proto::Color* temp = underlayer_color_;
+  underlayer_color_ = nullptr;
   return temp;
 }
-inline ::proto::Color* RenderSettings::_internal_mutable_underlayercolor() {
+inline ::proto::Color* RenderSettings::_internal_mutable_underlayer_color() {
   
-  if (underlayercolor_ == nullptr) {
+  if (underlayer_color_ == nullptr) {
     auto* p = CreateMaybeMessage<::proto::Color>(GetArena());
-    underlayercolor_ = p;
+    underlayer_color_ = p;
   }
-  return underlayercolor_;
+  return underlayer_color_;
 }
-inline ::proto::Color* RenderSettings::mutable_underlayercolor() {
-  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.underlayerColor)
-  return _internal_mutable_underlayercolor();
+inline ::proto::Color* RenderSettings::mutable_underlayer_color() {
+  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.underlayer_color)
+  return _internal_mutable_underlayer_color();
 }
-inline void RenderSettings::set_allocated_underlayercolor(::proto::Color* underlayercolor) {
+inline void RenderSettings::set_allocated_underlayer_color(::proto::Color* underlayer_color) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
-    delete underlayercolor_;
+    delete underlayer_color_;
   }
-  if (underlayercolor) {
+  if (underlayer_color) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(underlayercolor);
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(underlayer_color);
     if (message_arena != submessage_arena) {
-      underlayercolor = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, underlayercolor, submessage_arena);
+      underlayer_color = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, underlayer_color, submessage_arena);
     }
     
   } else {
     
   }
-  underlayercolor_ = underlayercolor;
-  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.underlayerColor)
+  underlayer_color_ = underlayer_color;
+  // @@protoc_insertion_point(field_set_allocated:proto.RenderSettings.underlayer_color)
 }
 
-// double underlayerWidth = 11;
-inline void RenderSettings::clear_underlayerwidth() {
-  underlayerwidth_ = 0;
+// double underlayer_width = 11;
+inline void RenderSettings::clear_underlayer_width() {
+  underlayer_width_ = 0;
 }
-inline double RenderSettings::_internal_underlayerwidth() const {
-  return underlayerwidth_;
+inline double RenderSettings::_internal_underlayer_width() const {
+  return underlayer_width_;
 }
-inline double RenderSettings::underlayerwidth() const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.underlayerWidth)
-  return _internal_underlayerwidth();
+inline double RenderSettings::underlayer_width() const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.underlayer_width)
+  return _internal_underlayer_width();
 }
-inline void RenderSettings::_internal_set_underlayerwidth(double value) {
+inline void RenderSettings::_internal_set_underlayer_width(double value) {
   
-  underlayerwidth_ = value;
+  underlayer_width_ = value;
 }
-inline void RenderSettings::set_underlayerwidth(double value) {
-  _internal_set_underlayerwidth(value);
-  // @@protoc_insertion_point(field_set:proto.RenderSettings.underlayerWidth)
+inline void RenderSettings::set_underlayer_width(double value) {
+  _internal_set_underlayer_width(value);
+  // @@protoc_insertion_point(field_set:proto.RenderSettings.underlayer_width)
 }
 
-// repeated .proto.Color colorPalette = 12;
-inline int RenderSettings::_internal_colorpalette_size() const {
-  return colorpalette_.size();
+// repeated .proto.Color color_palette = 12;
+inline int RenderSettings::_internal_color_palette_size() const {
+  return color_palette_.size();
 }
-inline int RenderSettings::colorpalette_size() const {
-  return _internal_colorpalette_size();
+inline int RenderSettings::color_palette_size() const {
+  return _internal_color_palette_size();
 }
-inline void RenderSettings::clear_colorpalette() {
-  colorpalette_.Clear();
+inline void RenderSettings::clear_color_palette() {
+  color_palette_.Clear();
 }
-inline ::proto::Color* RenderSettings::mutable_colorpalette(int index) {
-  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.colorPalette)
-  return colorpalette_.Mutable(index);
+inline ::proto::Color* RenderSettings::mutable_color_palette(int index) {
+  // @@protoc_insertion_point(field_mutable:proto.RenderSettings.color_palette)
+  return color_palette_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color >*
-RenderSettings::mutable_colorpalette() {
-  // @@protoc_insertion_point(field_mutable_list:proto.RenderSettings.colorPalette)
-  return &colorpalette_;
+RenderSettings::mutable_color_palette() {
+  // @@protoc_insertion_point(field_mutable_list:proto.RenderSettings.color_palette)
+  return &color_palette_;
 }
-inline const ::proto::Color& RenderSettings::_internal_colorpalette(int index) const {
-  return colorpalette_.Get(index);
+inline const ::proto::Color& RenderSettings::_internal_color_palette(int index) const {
+  return color_palette_.Get(index);
 }
-inline const ::proto::Color& RenderSettings::colorpalette(int index) const {
-  // @@protoc_insertion_point(field_get:proto.RenderSettings.colorPalette)
-  return _internal_colorpalette(index);
+inline const ::proto::Color& RenderSettings::color_palette(int index) const {
+  // @@protoc_insertion_point(field_get:proto.RenderSettings.color_palette)
+  return _internal_color_palette(index);
 }
-inline ::proto::Color* RenderSettings::_internal_add_colorpalette() {
-  return colorpalette_.Add();
+inline ::proto::Color* RenderSettings::_internal_add_color_palette() {
+  return color_palette_.Add();
 }
-inline ::proto::Color* RenderSettings::add_colorpalette() {
-  // @@protoc_insertion_point(field_add:proto.RenderSettings.colorPalette)
-  return _internal_add_colorpalette();
+inline ::proto::Color* RenderSettings::add_color_palette() {
+  // @@protoc_insertion_point(field_add:proto.RenderSettings.color_palette)
+  return _internal_add_color_palette();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::proto::Color >&
-RenderSettings::colorpalette() const {
-  // @@protoc_insertion_point(field_list:proto.RenderSettings.colorPalette)
-  return colorpalette_;
+RenderSettings::color_palette() const {
+  // @@protoc_insertion_point(field_list:proto.RenderSettings.color_palette)
+  return color_palette_;
 }
 
 #ifdef __GNUC__

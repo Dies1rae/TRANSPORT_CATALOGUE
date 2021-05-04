@@ -33,7 +33,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RoutingSettingsDefaultTypeInter
 constexpr RouteInternalData::RouteInternalData(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : weight_(nullptr)
-  , prevedge_(nullptr){}
+  , prev_edge_(nullptr){}
 struct RouteInternalDataDefaultTypeInternal {
   constexpr RouteInternalDataDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -98,7 +98,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5frouter_2eproto::of
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::proto::RouteInternalData, weight_),
-  PROTOBUF_FIELD_OFFSET(::proto::RouteInternalData, prevedge_),
+  PROTOBUF_FIELD_OFFSET(::proto::RouteInternalData, prev_edge_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::proto::RouteInternalDataArray, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -137,21 +137,21 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_transport_5frouter_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026transport_router.proto\022\005proto\032\013graph.p"
   "roto\">\n\017RoutingSettings\022\025\n\rbus_wait_time"
-  "\030\001 \001(\r\022\024\n\014bus_velocity\030\002 \001(\001\"S\n\021RouteInt"
+  "\030\001 \001(\r\022\024\n\014bus_velocity\030\002 \001(\001\"T\n\021RouteInt"
   "ernalData\022\035\n\006weight\030\001 \001(\0132\r.proto.Weight"
-  "\022\037\n\010prevEdge\030\002 \001(\0132\r.proto.EdgeId\"B\n\026Rou"
-  "teInternalDataArray\022(\n\006vector\030\001 \003(\0132\030.pr"
-  "oto.RouteInternalData\"C\n\022RoutesInternalD"
-  "ata\022-\n\006vector\030\001 \003(\0132\035.proto.RouteInterna"
-  "lDataArray\":\n\017RouteFinderData\022\'\n\004data\030\001 "
-  "\001(\0132\031.proto.RoutesInternalDatab\006proto3"
+  "\022 \n\tprev_edge\030\002 \001(\0132\r.proto.EdgeId\"B\n\026Ro"
+  "uteInternalDataArray\022(\n\006vector\030\001 \003(\0132\030.p"
+  "roto.RouteInternalData\"C\n\022RoutesInternal"
+  "Data\022-\n\006vector\030\001 \003(\0132\035.proto.RouteIntern"
+  "alDataArray\":\n\017RouteFinderData\022\'\n\004data\030\001"
+  " \001(\0132\031.proto.RoutesInternalDatab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_transport_5frouter_2eproto_deps[1] = {
   &::descriptor_table_graph_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_transport_5frouter_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5frouter_2eproto = {
-  false, false, 398, descriptor_table_protodef_transport_5frouter_2eproto, "transport_router.proto", 
+  false, false, 399, descriptor_table_protodef_transport_5frouter_2eproto, "transport_router.proto", 
   &descriptor_table_transport_5frouter_2eproto_once, descriptor_table_transport_5frouter_2eproto_deps, 1, 5,
   schemas, file_default_instances, TableStruct_transport_5frouter_2eproto::offsets,
   file_level_metadata_transport_5frouter_2eproto, file_level_enum_descriptors_transport_5frouter_2eproto, file_level_service_descriptors_transport_5frouter_2eproto,
@@ -393,7 +393,7 @@ void RoutingSettings::InternalSwap(RoutingSettings* other) {
 class RouteInternalData::_Internal {
  public:
   static const ::proto::Weight& weight(const RouteInternalData* msg);
-  static const ::proto::EdgeId& prevedge(const RouteInternalData* msg);
+  static const ::proto::EdgeId& prev_edge(const RouteInternalData* msg);
 };
 
 const ::proto::Weight&
@@ -401,8 +401,8 @@ RouteInternalData::_Internal::weight(const RouteInternalData* msg) {
   return *msg->weight_;
 }
 const ::proto::EdgeId&
-RouteInternalData::_Internal::prevedge(const RouteInternalData* msg) {
-  return *msg->prevedge_;
+RouteInternalData::_Internal::prev_edge(const RouteInternalData* msg) {
+  return *msg->prev_edge_;
 }
 void RouteInternalData::clear_weight() {
   if (GetArena() == nullptr && weight_ != nullptr) {
@@ -410,11 +410,11 @@ void RouteInternalData::clear_weight() {
   }
   weight_ = nullptr;
 }
-void RouteInternalData::clear_prevedge() {
-  if (GetArena() == nullptr && prevedge_ != nullptr) {
-    delete prevedge_;
+void RouteInternalData::clear_prev_edge() {
+  if (GetArena() == nullptr && prev_edge_ != nullptr) {
+    delete prev_edge_;
   }
-  prevedge_ = nullptr;
+  prev_edge_ = nullptr;
 }
 RouteInternalData::RouteInternalData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
@@ -430,10 +430,10 @@ RouteInternalData::RouteInternalData(const RouteInternalData& from)
   } else {
     weight_ = nullptr;
   }
-  if (from._internal_has_prevedge()) {
-    prevedge_ = new ::proto::EdgeId(*from.prevedge_);
+  if (from._internal_has_prev_edge()) {
+    prev_edge_ = new ::proto::EdgeId(*from.prev_edge_);
   } else {
-    prevedge_ = nullptr;
+    prev_edge_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:proto.RouteInternalData)
 }
@@ -441,8 +441,8 @@ RouteInternalData::RouteInternalData(const RouteInternalData& from)
 void RouteInternalData::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&weight_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&prevedge_) -
-    reinterpret_cast<char*>(&weight_)) + sizeof(prevedge_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&prev_edge_) -
+    reinterpret_cast<char*>(&weight_)) + sizeof(prev_edge_));
 }
 
 RouteInternalData::~RouteInternalData() {
@@ -454,7 +454,7 @@ RouteInternalData::~RouteInternalData() {
 void RouteInternalData::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   if (this != internal_default_instance()) delete weight_;
-  if (this != internal_default_instance()) delete prevedge_;
+  if (this != internal_default_instance()) delete prev_edge_;
 }
 
 void RouteInternalData::ArenaDtor(void* object) {
@@ -477,10 +477,10 @@ void RouteInternalData::Clear() {
     delete weight_;
   }
   weight_ = nullptr;
-  if (GetArena() == nullptr && prevedge_ != nullptr) {
-    delete prevedge_;
+  if (GetArena() == nullptr && prev_edge_ != nullptr) {
+    delete prev_edge_;
   }
-  prevedge_ = nullptr;
+  prev_edge_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -498,10 +498,10 @@ const char* RouteInternalData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .proto.EdgeId prevEdge = 2;
+      // .proto.EdgeId prev_edge = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_prevedge(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_prev_edge(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -541,12 +541,12 @@ failure:
         1, _Internal::weight(this), target, stream);
   }
 
-  // .proto.EdgeId prevEdge = 2;
-  if (this->has_prevedge()) {
+  // .proto.EdgeId prev_edge = 2;
+  if (this->has_prev_edge()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        2, _Internal::prevedge(this), target, stream);
+        2, _Internal::prev_edge(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -572,11 +572,11 @@ size_t RouteInternalData::ByteSizeLong() const {
         *weight_);
   }
 
-  // .proto.EdgeId prevEdge = 2;
-  if (this->has_prevedge()) {
+  // .proto.EdgeId prev_edge = 2;
+  if (this->has_prev_edge()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *prevedge_);
+        *prev_edge_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -613,8 +613,8 @@ void RouteInternalData::MergeFrom(const RouteInternalData& from) {
   if (from.has_weight()) {
     _internal_mutable_weight()->::proto::Weight::MergeFrom(from._internal_weight());
   }
-  if (from.has_prevedge()) {
-    _internal_mutable_prevedge()->::proto::EdgeId::MergeFrom(from._internal_prevedge());
+  if (from.has_prev_edge()) {
+    _internal_mutable_prev_edge()->::proto::EdgeId::MergeFrom(from._internal_prev_edge());
   }
 }
 
@@ -640,8 +640,8 @@ void RouteInternalData::InternalSwap(RouteInternalData* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RouteInternalData, prevedge_)
-      + sizeof(RouteInternalData::prevedge_)
+      PROTOBUF_FIELD_OFFSET(RouteInternalData, prev_edge_)
+      + sizeof(RouteInternalData::prev_edge_)
       - PROTOBUF_FIELD_OFFSET(RouteInternalData, weight_)>(
           reinterpret_cast<char*>(&weight_),
           reinterpret_cast<char*>(&other->weight_));

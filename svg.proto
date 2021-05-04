@@ -27,13 +27,13 @@ message RenderSettings {
     double width = 1;
     double height = 2;
     double padding = 3;
-    double lineWidth = 4;
-    double stopRadius = 5;
-    uint32 busLabelFontSize = 6;
-    Point busLabelOffset = 7;
-    uint32 stopLabelFontSize = 8;
-    Point stopLabelOffset = 9;
-    Color underlayerColor = 10;
-    double underlayerWidth = 11;
-    repeated Color colorPalette = 12;
+    double line_width = 4;
+    double stop_radius = 5;
+    uint32 bus_label_font_size = 6;
+    Point bus_label_offset = 7;
+    uint32 stop_label_font_size = 8;
+    Point stop_label_offset = 9;
+    Color underlayer_color = 10;
+    double underlayer_width = 11;
+    repeated Color color_palette = 12;
 }

@@ -19,8 +19,8 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace proto {
 constexpr Coordinates::Coordinates(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : latitude_(0)
-  , longitude_(0){}
+  : lat_(0)
+  , lon_(0){}
 struct CoordinatesDefaultTypeInternal {
   constexpr CoordinatesDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -45,8 +45,8 @@ struct StopDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StopDefaultTypeInternal _Stop_default_instance_;
 constexpr Route::Route(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : stopids_()
-  , _stopids_cached_byte_size_()
+  : stop_id_()
+  , _stop_id_cached_byte_size_()
   , name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , direct_length_(0)
   , cycled_(false)
@@ -78,7 +78,7 @@ struct DistanceDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DistanceDefaultTypeInternal _Distance_default_instance_;
 constexpr TransportCatalogue::TransportCatalogue(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : stopnames_()
+  : stop_names_()
   , stops_()
   , distances_()
   , routes_()
@@ -105,8 +105,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalogue_2eproto:
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::proto::Coordinates, latitude_),
-  PROTOBUF_FIELD_OFFSET(::proto::Coordinates, longitude_),
+  PROTOBUF_FIELD_OFFSET(::proto::Coordinates, lat_),
+  PROTOBUF_FIELD_OFFSET(::proto::Coordinates, lon_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::proto::Stop, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -120,7 +120,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalogue_2eproto:
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::proto::Route, name_),
-  PROTOBUF_FIELD_OFFSET(::proto::Route, stopids_),
+  PROTOBUF_FIELD_OFFSET(::proto::Route, stop_id_),
   PROTOBUF_FIELD_OFFSET(::proto::Route, cycled_),
   PROTOBUF_FIELD_OFFSET(::proto::Route, direct_length_),
   PROTOBUF_FIELD_OFFSET(::proto::Route, length_),
@@ -139,7 +139,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_transport_5fcatalogue_2eproto:
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::proto::TransportCatalogue, stopnames_),
+  PROTOBUF_FIELD_OFFSET(::proto::TransportCatalogue, stop_names_),
   PROTOBUF_FIELD_OFFSET(::proto::TransportCatalogue, stops_),
   PROTOBUF_FIELD_OFFSET(::proto::TransportCatalogue, distances_),
   PROTOBUF_FIELD_OFFSET(::proto::TransportCatalogue, routes_),
@@ -165,21 +165,21 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_transport_5fcatalogue_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\031transport_catalogue.proto\022\005proto\032\tsvg."
-  "proto\032\026transport_router.proto\"2\n\013Coordin"
-  "ates\022\020\n\010latitude\030\001 \001(\001\022\021\n\tlongitude\030\002 \001("
-  "\001\"5\n\004Stop\022\n\n\002id\030\001 \001(\r\022!\n\005place\030\002 \001(\0132\022.p"
-  "roto.Coordinates\"\213\001\n\005Route\022\014\n\004name\030\001 \001(\t"
-  "\022\017\n\007stopIds\030\002 \003(\r\022\016\n\006cycled\030\003 \001(\010\022\025\n\rdir"
-  "ect_length\030\004 \001(\001\022\016\n\006length\030\005 \001(\r\022\021\n\tcurv"
-  "ature\030\006 \001(\001\022\031\n\021unique_stop_count\030\007 \001(\r\"4"
-  "\n\010Distance\022\014\n\004from\030\001 \001(\r\022\n\n\002to\030\002 \001(\r\022\016\n\006"
-  "meters\030\003 \001(\r\"\376\001\n\022TransportCatalogue\022\021\n\tS"
-  "topNames\030\001 \003(\t\022\032\n\005stops\030\002 \003(\0132\013.proto.St"
-  "op\022\"\n\tdistances\030\003 \003(\0132\017.proto.Distance\022\034"
-  "\n\006routes\030\004 \003(\0132\014.proto.Route\022\"\n\003res\030\005 \001("
-  "\0132\025.proto.RenderSettings\022#\n\003rus\030\006 \001(\0132\026."
-  "proto.RoutingSettings\022.\n\016navigationData\030"
-  "\007 \001(\0132\026.proto.RouteFinderDatab\006proto3"
+  "proto\032\026transport_router.proto\"\'\n\013Coordin"
+  "ates\022\013\n\003lat\030\001 \001(\001\022\013\n\003lon\030\002 \001(\001\"5\n\004Stop\022\n"
+  "\n\002id\030\001 \001(\r\022!\n\005place\030\002 \001(\0132\022.proto.Coordi"
+  "nates\"\213\001\n\005Route\022\014\n\004name\030\001 \001(\t\022\017\n\007stop_id"
+  "\030\002 \003(\r\022\016\n\006cycled\030\003 \001(\010\022\025\n\rdirect_length\030"
+  "\004 \001(\001\022\016\n\006length\030\005 \001(\r\022\021\n\tcurvature\030\006 \001(\001"
+  "\022\031\n\021unique_stop_count\030\007 \001(\r\"4\n\010Distance\022"
+  "\014\n\004from\030\001 \001(\r\022\n\n\002to\030\002 \001(\r\022\016\n\006meters\030\003 \001("
+  "\r\"\377\001\n\022TransportCatalogue\022\022\n\nstop_names\030\001"
+  " \003(\t\022\032\n\005stops\030\002 \003(\0132\013.proto.Stop\022\"\n\tdist"
+  "ances\030\003 \003(\0132\017.proto.Distance\022\034\n\006routes\030\004"
+  " \003(\0132\014.proto.Route\022\"\n\003res\030\005 \001(\0132\025.proto."
+  "RenderSettings\022#\n\003rus\030\006 \001(\0132\026.proto.Rout"
+  "ingSettings\022.\n\016navigationData\030\007 \001(\0132\026.pr"
+  "oto.RouteFinderDatab\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_transport_5fcatalogue_2eproto_deps[2] = {
   &::descriptor_table_svg_2eproto,
@@ -187,7 +187,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_transport_5fcatalogue_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_transport_5fcatalogue_2eproto = {
-  false, false, 637, descriptor_table_protodef_transport_5fcatalogue_2eproto, "transport_catalogue.proto", 
+  false, false, 627, descriptor_table_protodef_transport_5fcatalogue_2eproto, "transport_catalogue.proto", 
   &descriptor_table_transport_5fcatalogue_2eproto_once, descriptor_table_transport_5fcatalogue_2eproto_deps, 2, 5,
   schemas, file_default_instances, TableStruct_transport_5fcatalogue_2eproto::offsets,
   file_level_metadata_transport_5fcatalogue_2eproto, file_level_enum_descriptors_transport_5fcatalogue_2eproto, file_level_service_descriptors_transport_5fcatalogue_2eproto,
@@ -217,17 +217,17 @@ Coordinates::Coordinates(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Coordinates::Coordinates(const Coordinates& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&latitude_, &from.latitude_,
-    static_cast<size_t>(reinterpret_cast<char*>(&longitude_) -
-    reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  ::memcpy(&lat_, &from.lat_,
+    static_cast<size_t>(reinterpret_cast<char*>(&lon_) -
+    reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
   // @@protoc_insertion_point(copy_constructor:proto.Coordinates)
 }
 
 void Coordinates::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&latitude_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&longitude_) -
-    reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+    reinterpret_cast<char*>(&lat_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&lon_) -
+    reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
 }
 
 Coordinates::~Coordinates() {
@@ -256,9 +256,9 @@ void Coordinates::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&latitude_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&longitude_) -
-      reinterpret_cast<char*>(&latitude_)) + sizeof(longitude_));
+  ::memset(&lat_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&lon_) -
+      reinterpret_cast<char*>(&lat_)) + sizeof(lon_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -269,17 +269,17 @@ const char* Coordinates::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // double latitude = 1;
+      // double lat = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
-          latitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          lat_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // double longitude = 2;
+      // double lon = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
-          longitude_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          lon_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
@@ -311,16 +311,16 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // double latitude = 1;
-  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+  // double lat = 1;
+  if (!(this->lat() <= 0 && this->lat() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_latitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_lat(), target);
   }
 
-  // double longitude = 2;
-  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+  // double lon = 2;
+  if (!(this->lon() <= 0 && this->lon() >= 0)) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_longitude(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_lon(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -339,13 +339,13 @@ size_t Coordinates::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // double latitude = 1;
-  if (!(this->latitude() <= 0 && this->latitude() >= 0)) {
+  // double lat = 1;
+  if (!(this->lat() <= 0 && this->lat() >= 0)) {
     total_size += 1 + 8;
   }
 
-  // double longitude = 2;
-  if (!(this->longitude() <= 0 && this->longitude() >= 0)) {
+  // double lon = 2;
+  if (!(this->lon() <= 0 && this->lon() >= 0)) {
     total_size += 1 + 8;
   }
 
@@ -380,11 +380,11 @@ void Coordinates::MergeFrom(const Coordinates& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!(from.latitude() <= 0 && from.latitude() >= 0)) {
-    _internal_set_latitude(from._internal_latitude());
+  if (!(from.lat() <= 0 && from.lat() >= 0)) {
+    _internal_set_lat(from._internal_lat());
   }
-  if (!(from.longitude() <= 0 && from.longitude() >= 0)) {
-    _internal_set_longitude(from._internal_longitude());
+  if (!(from.lon() <= 0 && from.lon() >= 0)) {
+    _internal_set_lon(from._internal_lon());
   }
 }
 
@@ -410,11 +410,11 @@ void Coordinates::InternalSwap(Coordinates* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Coordinates, longitude_)
-      + sizeof(Coordinates::longitude_)
-      - PROTOBUF_FIELD_OFFSET(Coordinates, latitude_)>(
-          reinterpret_cast<char*>(&latitude_),
-          reinterpret_cast<char*>(&other->latitude_));
+      PROTOBUF_FIELD_OFFSET(Coordinates, lon_)
+      + sizeof(Coordinates::lon_)
+      - PROTOBUF_FIELD_OFFSET(Coordinates, lat_)>(
+          reinterpret_cast<char*>(&lat_),
+          reinterpret_cast<char*>(&other->lat_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Coordinates::GetMetadata() const {
@@ -667,14 +667,14 @@ class Route::_Internal {
 
 Route::Route(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  stopids_(arena) {
+  stop_id_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:proto.Route)
 }
 Route::Route(const Route& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      stopids_(from.stopids_) {
+      stop_id_(from.stop_id_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_name().empty()) {
@@ -722,7 +722,7 @@ void Route::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  stopids_.Clear();
+  stop_id_.Clear();
   name_.ClearToEmpty();
   ::memset(&direct_length_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&unique_stop_count_) -
@@ -746,13 +746,13 @@ const char* Route::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 stopIds = 2;
+      // repeated uint32 stop_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_stopids(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_stop_id(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
-          _internal_add_stopids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          _internal_add_stop_id(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -829,12 +829,12 @@ failure:
         1, this->_internal_name(), target);
   }
 
-  // repeated uint32 stopIds = 2;
+  // repeated uint32 stop_id = 2;
   {
-    int byte_size = _stopids_cached_byte_size_.load(std::memory_order_relaxed);
+    int byte_size = _stop_id_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
       target = stream->WriteUInt32Packed(
-          2, _internal_stopids(), byte_size, target);
+          2, _internal_stop_id(), byte_size, target);
     }
   }
 
@@ -884,17 +884,17 @@ size_t Route::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 stopIds = 2;
+  // repeated uint32 stop_id = 2;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->stopids_);
+      UInt32Size(this->stop_id_);
     if (data_size > 0) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
             static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
     }
     int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _stopids_cached_byte_size_.store(cached_size,
+    _stop_id_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
@@ -966,7 +966,7 @@ void Route::MergeFrom(const Route& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  stopids_.MergeFrom(from.stopids_);
+  stop_id_.MergeFrom(from.stop_id_);
   if (from.name().size() > 0) {
     _internal_set_name(from._internal_name());
   }
@@ -1008,7 +1008,7 @@ bool Route::IsInitialized() const {
 void Route::InternalSwap(Route* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  stopids_.InternalSwap(&other->stopids_);
+  stop_id_.InternalSwap(&other->stop_id_);
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Route, unique_stop_count_)
@@ -1311,7 +1311,7 @@ void TransportCatalogue::clear_navigationdata() {
 }
 TransportCatalogue::TransportCatalogue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  stopnames_(arena),
+  stop_names_(arena),
   stops_(arena),
   distances_(arena),
   routes_(arena) {
@@ -1321,7 +1321,7 @@ TransportCatalogue::TransportCatalogue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 }
 TransportCatalogue::TransportCatalogue(const TransportCatalogue& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      stopnames_(from.stopnames_),
+      stop_names_(from.stop_names_),
       stops_(from.stops_),
       distances_(from.distances_),
       routes_(from.routes_) {
@@ -1380,7 +1380,7 @@ void TransportCatalogue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  stopnames_.Clear();
+  stop_names_.Clear();
   stops_.Clear();
   distances_.Clear();
   routes_.Clear();
@@ -1406,15 +1406,15 @@ const char* TransportCatalogue::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated string StopNames = 1;
+      // repeated string stop_names = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            auto str = _internal_add_stopnames();
+            auto str = _internal_add_stop_names();
             ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "proto.TransportCatalogue.StopNames"));
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "proto.TransportCatalogue.stop_names"));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -1505,13 +1505,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string StopNames = 1;
-  for (int i = 0, n = this->_internal_stopnames_size(); i < n; i++) {
-    const auto& s = this->_internal_stopnames(i);
+  // repeated string stop_names = 1;
+  for (int i = 0, n = this->_internal_stop_names_size(); i < n; i++) {
+    const auto& s = this->_internal_stop_names(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       s.data(), static_cast<int>(s.length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "proto.TransportCatalogue.StopNames");
+      "proto.TransportCatalogue.stop_names");
     target = stream->WriteString(1, s, target);
   }
 
@@ -1579,12 +1579,12 @@ size_t TransportCatalogue::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string StopNames = 1;
+  // repeated string stop_names = 1;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(stopnames_.size());
-  for (int i = 0, n = stopnames_.size(); i < n; i++) {
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(stop_names_.size());
+  for (int i = 0, n = stop_names_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      stopnames_.Get(i));
+      stop_names_.Get(i));
   }
 
   // repeated .proto.Stop stops = 2;
@@ -1660,7 +1660,7 @@ void TransportCatalogue::MergeFrom(const TransportCatalogue& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  stopnames_.MergeFrom(from.stopnames_);
+  stop_names_.MergeFrom(from.stop_names_);
   stops_.MergeFrom(from.stops_);
   distances_.MergeFrom(from.distances_);
   routes_.MergeFrom(from.routes_);
@@ -1696,7 +1696,7 @@ bool TransportCatalogue::IsInitialized() const {
 void TransportCatalogue::InternalSwap(TransportCatalogue* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  stopnames_.InternalSwap(&other->stopnames_);
+  stop_names_.InternalSwap(&other->stop_names_);
   stops_.InternalSwap(&other->stops_);
   distances_.InternalSwap(&other->distances_);
   routes_.InternalSwap(&other->routes_);

@@ -13,7 +13,7 @@
 
 using namespace std::literals;
 
-proto::Color ColorToProto(const svg::Color& color);
+proto::Color color_proto(const svg::Color& color);
 
 void serialize(std::istream& in);
 
