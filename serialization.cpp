@@ -1,6 +1,5 @@
 #include "serialization.h"
 
-
 proto::Color color_proto(const svg::Color& color) {
     proto::Color result;
     if (std::holds_alternative<std::monostate>(color)) {
@@ -31,11 +30,9 @@ proto::Color color_proto(const svg::Color& color) {
 void serialize(std::istream& in) {
     const json::Document rawRequests = json::Load(in);
 
-    //DB file
     const json::Node& serializationSettings = rawRequests.GetRoot().AsMap().at("serialization_settings");
     std::string fileName = serializationSettings.AsMap().at("file"s).AsString();
 
-    //Base requests
     const json::Node& baseRequests = rawRequests.GetRoot().AsMap().at("base_requests");
     std::vector<const json::Node*> stop_nodes;
     std::vector<const json::Node*> busroutes_nides;
@@ -64,7 +61,6 @@ void serialize(std::istream& in) {
     std::vector<Distance> distances;
     std::map<std::string, int> stopDict;
 
-    //Stops
     int id = 0;
     for (const json::Node* node: stop_nodes) {
         auto* protoStop = db.add_stops();
@@ -84,7 +80,6 @@ void serialize(std::istream& in) {
         }
     }
 
-    //Dist
     for (const Distance& distance: distances) {
         auto* protoDistance = db.add_distances();
         protoDistance->set_from(stopDict[distance.from]);
@@ -92,7 +87,6 @@ void serialize(std::istream& in) {
         protoDistance->set_meters(distance.meters);
     }
 
-    //BusRouts
     for (const json::Node* node: busroutes_nides) {
         auto* protoRoute = db.add_routes();
 
@@ -110,7 +104,6 @@ void serialize(std::istream& in) {
         }
     }
 
-    //Render settings
     rndr::renderSettings renderSettings;
     if (rawRequests.GetRoot().AsMap().find("render_settings") != rawRequests.GetRoot().AsMap().end()) {
         renderSettings = json_reader::parseRenderSettings(rawRequests.GetRoot().AsMap().at("render_settings"));
@@ -135,10 +128,9 @@ void serialize(std::istream& in) {
     }
     *db.mutable_res() = proto_render_settings;
 
-    // Routing settings
     RoutingSettings routingSettings;
-    if (rawRequests.GetRoot().AsMap().find("routing_settings") != rawRequests.GetRoot().AsMap().end()) {
-        routingSettings = json_reader::parseRoutingSettings(rawRequests.GetRoot().AsMap().at("routing_settings"));
+    if (rawRequests.GetRoot().AsMap().find("RoutingSettings") != rawRequests.GetRoot().AsMap().end()) {
+        routingSettings = json_reader::parseRoutingSettings(rawRequests.GetRoot().AsMap().at("RoutingSettings"));
     }
     proto::RoutingSettings protoRoutingSettings;
     protoRoutingSettings.set_bus_wait_time(routingSettings.bus_wait_time_);
@@ -152,20 +144,17 @@ void serialize(std::istream& in) {
 }
 
 void database_restore(const proto::TransportCatalogue& database, database::TransportCatalogue& catalogue) {
-    //Stops
     for (int i = 0; i < database.stops_size(); ++i) {
         proto::Coordinates place = database.stops(i).place();
         elements::Stop* stop = new elements::Stop(database.stop_names(i),{place.lat(), place.lon()});
         catalogue.stop_add(*stop);
     }
 
-    //Dist
     for (int i = 0; i < database.distances_size(); ++i) {
         proto::Distance distance = database.distances(i);
         catalogue.setDistance(database.stop_names(distance.from()), database.stop_names(distance.to()), distance.meters());
     }
 
-    //BusRoutes
     for (int i = 0; i < database.routes_size(); ++i) {
         std::vector<elements::Stop*> stops;
         for (int j = 0; j < database.routes(i).stop_id_size(); ++j) {
@@ -177,7 +166,6 @@ void database_restore(const proto::TransportCatalogue& database, database::Trans
 
 inline svg::Color protoToColor(const proto::Color& color) {
     auto dataType = color.data_case();
-
    if (dataType == proto::Color::kIsNone) {
        return {};
    } else if (dataType == proto::Color::kName) {
@@ -218,30 +206,24 @@ void settings_restore(const proto::TransportCatalogue& database, RoutingSettings
 
 void desirialize(std::istream& in) {
     const json::Document rawRequests = json::Load(in);
-    //DB
     const json::Node& serializationSettings = rawRequests.GetRoot().AsMap().at("serialization_settings");
     std::string fileName = serializationSettings.AsMap().at("file"s).AsString();
     std::ifstream inFile(fileName, std::ios::binary);
     proto::TransportCatalogue db;
     db.ParseFromIstream(&inFile);
 
-    //TransportCatalogue
     database::TransportCatalogue catalogue;
     database_restore(db, catalogue);
 
-    //Render settings
     rndr::renderSettings renderSettings;
     settings_restore(db, renderSettings);
     rndr::map_renderer renderer(catalogue, renderSettings);
 
-    //Routing settings
     RoutingSettings routingSettings;
     settings_restore(db, routingSettings);
     database::transport_router finder(catalogue, routingSettings.bus_wait_time_, routingSettings.bus_velocity_);
 
-    //Stat requests
     std::vector<request> statRequests = json_reader::parseStatRequests(rawRequests.GetRoot().AsMap().at("stat_requests"));
 
-    //Answers in cout
     std::cout << json_reader::prepareAnswers(statRequests, catalogue, renderer, finder).Content();
 }

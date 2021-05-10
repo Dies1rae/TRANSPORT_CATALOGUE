@@ -17,7 +17,7 @@
 namespace database {
     using namespace elements;
 
-    struct routing_settings {
+    struct RoutingSettings {
         double bus_wait_time_ = 0.0;
         double bus_velocity_ = 0.0;
     };
@@ -82,7 +82,7 @@ namespace database {
         std::vector<TripItem> graphEdges_;
         graph::DirectedWeightedGraph<TripTime>* graph_;
         graph::Router<TripTime>* searching_edges_;
-        routing_settings rout_settings_;
+        RoutingSettings rout_settings_;
         TransportCatalogue& catalogue_;
         std::vector<double> direct_dist_;
         std::vector<double> reverse_dist_;

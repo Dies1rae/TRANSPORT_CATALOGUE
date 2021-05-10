@@ -103,5 +103,4 @@ namespace rndr {
         database::TransportCatalogue& catalogue_;
         renderSettings& settings_;
     };
-
-} //namespace rndr
+} //namespace rnd

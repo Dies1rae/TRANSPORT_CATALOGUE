@@ -29,7 +29,6 @@ namespace graph {
         };
 
         std::unique_ptr<std::vector<size_t>> BuildRoute(VertexId from, VertexId to) const;
-
     private:
         struct RouteInternalData {
             Weight weight;

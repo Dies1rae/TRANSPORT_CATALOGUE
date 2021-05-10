@@ -224,8 +224,8 @@ namespace database {
 		return nullptr;
 	}
 
-	TransportCatalogue::Route_info TransportCatalogue::rout_info(const std::string_view bus_number) {
-		TransportCatalogue::Route_info result;
+	TransportCatalogue::RouteInfo TransportCatalogue::rout_info(const std::string_view bus_number) {
+		TransportCatalogue::RouteInfo result;
 		result.name_ = bus_number;
 		if (this->rout_byname(bus_number) == nullptr) {
 			return result;
@@ -242,8 +242,8 @@ namespace database {
 		return result;
 	}
 
-	TransportCatalogue::Stop_info TransportCatalogue::stop_info(const std::string_view stop_name) {
-		Stop_info result;
+	TransportCatalogue::StopInfo TransportCatalogue::StopInfo(const std::string_view stop_name) {
+		StopInfo result;
 		result.name_ = stop_name;
 		for (auto& [stop, routes] : this->stop_to_routes_) {
 			if (stop->name_ == stop_name) {
@@ -307,11 +307,11 @@ namespace database {
 		return 0;
 	}
 
-    std::unordered_map<Stop*, std::set<BusRout*, RouteComparator>, TransportCatalogue::Stop_Hasher>& TransportCatalogue::get_stop_to_routes_() {
+    std::unordered_map<Stop*, std::set<BusRout*, RouteComparator>, TransportCatalogue::StopHasher>& TransportCatalogue::get_stop_to_routes_() {
 		return this->stop_to_routes_;
 	}
 
-	std::ostream& operator<<(std::ostream& out, const database::TransportCatalogue::Route_info& rout) {
+	std::ostream& operator<<(std::ostream& out, const database::TransportCatalogue::RouteInfo& rout) {
 		out << "Bus " << rout.name_ << ": ";
 		if (rout.stop_Count_ != 0) {
 			out << rout.stop_Count_ << " stops on route, ";
@@ -323,7 +323,7 @@ namespace database {
 		return out;
 	}
 
-	std::ostream& operator<<(std::ostream& out, const database::TransportCatalogue::Stop_info& stop) {
+	std::ostream& operator<<(std::ostream& out, const database::TransportCatalogue::StopInfo& stop) {
 		out << "Stop " << stop.name_ << ": ";
 		if (stop.routes.size() == 0) {
 			out << "no buses";

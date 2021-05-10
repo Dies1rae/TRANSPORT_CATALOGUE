@@ -96,5 +96,4 @@ namespace json {
 	private:
 		Builder& b_refer_;
 	};
-
 } //json

@@ -16,8 +16,6 @@ double ComputeDistance(Coordinates from, Coordinates to) {
     if (Coordinates_equial(from, to)) {
         return 0.0;
     }
-    return acos(sin(from.lat * dr) * sin(to.lat * dr)
-        + cos(from.lat * dr) * cos(to.lat * dr) * cos(abs(from.lng - to.lng) * dr))
-        * 6371000;
+    return acos(sin(from.lat * dr) * sin(to.lat * dr) + cos(from.lat * dr) * cos(to.lat * dr) * cos(abs(from.lng - to.lng) * dr)) * 6371000;
 }
 

@@ -196,4 +196,4 @@ namespace rndr {
 		}
 	}
 
-} //namespace rndr
+} //namespace rnd

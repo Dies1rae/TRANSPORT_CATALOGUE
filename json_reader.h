@@ -5,7 +5,6 @@
 #include "json_builder.h"
 #include "transport_router.h"
 
-
 #include <iostream>
 #include <string>
 
@@ -33,12 +32,12 @@ struct request {
 
 struct stopAnswer {
     int id = 0;
-    TransportCatalogue::Stop_info answer;
+    TransportCatalogue::StopInfo answer;
     std::string error = "";
 };
 
-json::Node makeStopAnswer(const int request_id, const TransportCatalogue::Stop_info& data);
-json::Node makeRouteAnswer(const int request_id, const TransportCatalogue::Route_info& data);
+json::Node makeStopAnswer(const int request_id, const TransportCatalogue::StopInfo& data);
+json::Node makeRouteAnswer(const int request_id, const TransportCatalogue::RouteInfo& data);
 json::Node makeRouteTimeAnswer(const int request_id, const std::vector <TripItem>& trip);
 json::Node makeRanderAnswer(const int request_id, const std::string& map_render_data);
 svg::Color parse_color(const json::Node& node);
@@ -52,7 +51,6 @@ public:
     static std::vector<request> parseStatRequests(const json::Node& node);
     static void fillDataBase(database::TransportCatalogue& catalogue, const std::vector<const json::Node*>& stopNodes, const std::vector<const json::Node*>& routeNodes);
     static json::Node prepareAnswers(std::vector<request>& requests, database::TransportCatalogue& catalogue, rndr::map_renderer& renderer, database::transport_router& finder);
-
 private:
     TransportCatalogue& catalogue_;
 };

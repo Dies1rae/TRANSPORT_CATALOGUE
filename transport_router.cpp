@@ -78,4 +78,4 @@ namespace database {
 
         return std::nullopt;
     }
-} //database
+} //databas

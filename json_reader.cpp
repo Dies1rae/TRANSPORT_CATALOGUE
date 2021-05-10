@@ -8,7 +8,7 @@
 #include <string>
 #include <iterator>
 
-json::Node makeStopAnswer(const int request_id, const TransportCatalogue::Stop_info& data) {
+json::Node makeStopAnswer(const int request_id, const TransportCatalogue::StopInfo& data) {
     json::Builder b_;
     b_.StartArray();
     for (elements::BusRout* r : data.routes) {
@@ -18,7 +18,7 @@ json::Node makeStopAnswer(const int request_id, const TransportCatalogue::Stop_i
     return json::Builder{}.StartDict().Key("request_id"s).Value(request_id).Key("buses").Value(tmp.AsArray()).EndDict().Build();
 }
 
-json::Node makeRouteAnswer(const int request_id, const TransportCatalogue::Route_info& data) {
+json::Node makeRouteAnswer(const int request_id, const TransportCatalogue::RouteInfo& data) {
     return json::Builder{}.StartDict().Key("request_id"s).Value(request_id).Key("route_length"s).Value(data.length_)
         .Key("stop_count"s).Value(data.stop_Count_).Key("unique_stop_count"s).Value(data.unique_Stop_Count_)
         .Key("curvature"s).Value(data.curvature_).EndDict().Build();
@@ -105,8 +105,6 @@ void json_reader::process_queries(std::istream& in, std::ostream& out) {
     };
     std::vector<distance> distances;
 
-    //BD info!!
-    // Stops
     for (const Node& n : stop_nodes) {
         std::string name = n.AsMap().at("name"s).AsString();
         double latitude = n.AsMap().at("latitude"s).AsDouble();
@@ -117,12 +115,10 @@ void json_reader::process_queries(std::istream& in, std::ostream& out) {
         }
     }
 
-    // Distances
     for (const distance& ptr : distances) {
         this->catalogue_.setDistance(ptr.from, ptr.to, ptr.meters);
     }
 
-    // Routes
     for (const Node& n : routs_nodes) {
         std::string name = n.AsMap().at("name"s).AsString();
         bool isCycled = n.AsMap().at("is_roundtrip"s).AsBool();
@@ -135,7 +131,6 @@ void json_reader::process_queries(std::istream& in, std::ostream& out) {
     }
     this->catalogue_.stop_to_routes_build();
 
-    //RENDER SETTINGS!!!
     rndr::renderSettings Render_Settings;
     if (raw_requests.GetRoot().AsMap().find("render_settings") != raw_requests.GetRoot().AsMap().end()) {
         const Dict& render_requests = raw_requests.GetRoot().AsMap().at("render_settings").AsMap();
@@ -157,11 +152,9 @@ void json_reader::process_queries(std::istream& in, std::ostream& out) {
         }
     }
 
-    //ROUTING SETTINGS!!!
-    const Dict& route_requests = raw_requests.GetRoot().AsMap().at("routing_settings").AsMap();
+    const Dict& route_requests = raw_requests.GetRoot().AsMap().at("RoutingSettings").AsMap();
     transport_router graph_finder(this->catalogue_, route_requests.at("bus_wait_time"s).AsDouble(), route_requests.at("bus_velocity"s).AsDouble());
 
-    //Request!!
     const json::Node stat_requests = raw_requests.GetRoot().AsMap().at("stat_requests");
     std::vector<request> pure_requests;
     for (const Node& n : stat_requests.AsArray()) {
@@ -185,23 +178,20 @@ void json_reader::process_queries(std::istream& in, std::ostream& out) {
         pure_requests.push_back(r);
     }
 
-    // Process requests
-
     json::Array ans_part(pure_requests.size());
     size_t req = 0;
-
     for (const request& r : pure_requests) {
         switch (r.type) {
         case request_type::REQUEST_STOP: {
-            if (auto stop_info = this->catalogue_.stop_info(r.name); stop_info.opt_ptr) {
-                ans_part[req] = makeStopAnswer(r.id, stop_info).AsMap();
+            if (auto StopInfo = this->catalogue_.StopInfo(r.name); StopInfo.opt_ptr) {
+                ans_part[req] = makeStopAnswer(r.id, StopInfo).AsMap();
             } else {
                 ans_part[req] = Dict{ {"request_id"s,r.id},{"error_message"s, "not found"s} };
             }
         } break;
         case request_type::REQUEST_BUS: {
-            if (auto route_info = TransportCatalogue::Route_info(std::move(this->catalogue_.rout_info(r.name))); route_info.opt_ptr) {
-                ans_part[req] = makeRouteAnswer(r.id, route_info).AsMap();
+            if (auto RouteInfo = TransportCatalogue::RouteInfo(std::move(this->catalogue_.rout_info(r.name))); RouteInfo.opt_ptr) {
+                ans_part[req] = makeRouteAnswer(r.id, RouteInfo).AsMap();
             } else {
                 ans_part[req] = Dict{ {"request_id"s,r.id},{"error_message"s, "not found"s} };
             }
@@ -241,7 +231,6 @@ rndr::renderSettings json_reader::parseRenderSettings(const json::Node& node) {
     renderSettings.bus_label_offset_.x = rawBusLabelOffset[0].AsDouble();
     renderSettings.bus_label_offset_.y = rawBusLabelOffset[1].AsDouble();
 
-
     renderSettings.stop_label_font_size_ = settingsDict.at("stop_label_font_size"s).AsInt();
     json::Array rawStopLabelOffset = settingsDict.at("stop_label_offset"s).AsArray();
     renderSettings.stop_label_offset_.x = rawStopLabelOffset[0].AsDouble();
@@ -273,20 +262,16 @@ std::vector<request> json_reader::parseStatRequests(const json::Node& node) {
         if (n.AsMap().at("type"s).AsString() == "Stop") {
             r.type = request_type::REQUEST_STOP;
             r.name = n.AsMap().at("name"s).AsString();
-        }
-        else if (n.AsMap().at("type"s).AsString() == "Bus") {
+        } else if (n.AsMap().at("type"s).AsString() == "Bus") {
             r.type = request_type::REQUEST_BUS;
             r.name = n.AsMap().at("name"s).AsString();
-        }
-        else if (n.AsMap().at("type"s).AsString() == "Map") {
+        } else if (n.AsMap().at("type"s).AsString() == "Map") {
             r.type = request_type::REQUEST_RENDER;
-        }
-        else if (n.AsMap().at("type"s).AsString() == "Route") {
+        } else if (n.AsMap().at("type"s).AsString() == "Route") {
             r.type = request_type::REQUEST_ROUTE;
             r.from = n.AsMap().at("from"s).AsString();
             r.to = n.AsMap().at("to"s).AsString();
-        }
-        else {
+        } else {
             throw json::ParsingError("Stat request type parsing error"s);
         }
         result.push_back(r);
@@ -338,15 +323,15 @@ json::Node json_reader::prepareAnswers(std::vector<request>& requests, database:
     for (const request& r : requests) {
         switch (r.type) {
         case request_type::REQUEST_STOP: {
-            if (auto stop_info = catalogue.stop_info(r.name); stop_info.opt_ptr) {
-                answers[req] = makeStopAnswer(r.id, stop_info).AsMap();
+            if (auto StopInfo = catalogue.StopInfo(r.name); StopInfo.opt_ptr) {
+                answers[req] = makeStopAnswer(r.id, StopInfo).AsMap();
             } else {
                 answers[req] = json::Dict{ {"request_id"s,r.id},{"error_message"s, "not found"s} };
             }
         } break;
         case request_type::REQUEST_BUS: {
-            if (auto route_info = TransportCatalogue::Route_info(std::move(catalogue.rout_info(r.name))); route_info.opt_ptr) {
-                answers[req] = makeRouteAnswer(r.id, route_info).AsMap();
+            if (auto RouteInfo = TransportCatalogue::RouteInfo(std::move(catalogue.rout_info(r.name))); RouteInfo.opt_ptr) {
+                answers[req] = makeRouteAnswer(r.id, RouteInfo).AsMap();
             } else {
                 answers[req] = json::Dict{ {"request_id"s,r.id},{"error_message"s, "not found"s} };
             }

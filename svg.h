@@ -297,7 +297,6 @@ namespace svg {
 
     class Document : public ObjectContainer {
     public:
-
         void AddPtr(std::shared_ptr<Object>&& obj);
 
         void Render(std::ostream& out) const;

@@ -189,5 +189,4 @@ namespace json {
     ValueItemContext DictItemContext::Key(const std::string& key) {
         return this->b_refer_.Key(key);
     }
-
 } //json

@@ -395,4 +395,4 @@ namespace json {
     void Print(const Document& doc, std::ostream& output) {
         visit(VariantPrinter{ output }, doc.GetRoot().Content());
     }
-} //namespace json
+} //namespace jso

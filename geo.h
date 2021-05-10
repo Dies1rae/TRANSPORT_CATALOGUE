@@ -1,5 +1,5 @@
 #pragma once
-
+//
 struct Coordinates {
     double lat;
     double lng;

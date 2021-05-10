@@ -24,22 +24,22 @@ namespace elements {
         BusRout(const BusRout& route);
         BusRout(BusRout&& route);
 
-	bool cycled_ = 0;
-	int stop_count_ = 0;
-	int uniquestop_count_ = 0;
-	double length_ = 0.0;
-	double direct_Length_ = 0.0;
-	double curve_ = 0.0;
-	std::string number_ = "";
-	std::vector<Stop*> da_way_;
+	    bool cycled_ = 0;
+	    int stop_count_ = 0;
+	    int uniquestop_count_ = 0;
+	    double length_ = 0.0;
+	    double direct_Length_ = 0.0;
+	    double curve_ = 0.0;
+	    std::string number_ = "";
+	    std::vector<Stop*> da_way_;
 	};
 
     struct RouteComparator {
         bool operator() (const BusRout* lhs, const BusRout* rhs) const {
-	    return std::lexicographical_compare(
-		lhs->number_.begin(), lhs->number_.end(),
-		rhs->number_.begin(), rhs->number_.end()
-	    );
+	        return std::lexicographical_compare(
+		        lhs->number_.begin(), lhs->number_.end(),
+		        rhs->number_.begin(), rhs->number_.end()
+	        );
         }
     };
 
