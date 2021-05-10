@@ -12,8 +12,8 @@ namespace rndr {
 	std::string map_renderer::render_map() const {
         using namespace std::literals;
 
-        std::set<elements::Bus_rout*, elements::Route_comparator> routes_to_draw = this->catalogue_.get_base_routes_uniuqe();
-        std::set<elements::Stop*, elements::Stop_comparator> stops_to_draw = this->catalogue_.get_base_stops_uniuqe();
+        std::set<elements::BusRout*, elements::RouteComparator> routes_to_draw = this->catalogue_.get_base_routes_uniuqe();
+        std::set<elements::Stop*, elements::StopComparator> stops_to_draw = this->catalogue_.get_base_stops_uniuqe();
         
         MapScaler scaler(stops_to_draw.begin(), stops_to_draw.end(), this->settings_.width_, this->settings_.height_, this->settings_.padding_);
         svg::Document svg_document;
@@ -31,11 +31,11 @@ namespace rndr {
                 .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND);
 
             for (elements::Stop* s : r->da_way_) {
-                route_line.AddPoint(scaler(s->geo_tag));
+                route_line.AddPoint(scaler(s->geo_tag_));
             }
             if (!r->cycled_) {
                 for (int el = r->da_way_.size() - 2; el > -1; el --) {
-                    route_line.AddPoint(scaler(r->da_way_[el]->geo_tag));
+                    route_line.AddPoint(scaler(r->da_way_[el]->geo_tag_));
                 }
             }
             svg_document.Add(route_line);
@@ -53,7 +53,7 @@ namespace rndr {
                 svg::Text routs_num_first = svg::Text()
                     .SetFillColor(this->settings_.color_palette_[ptr_clr])
                     .SetFontWeight("bold")
-                    .SetPosition(scaler(r->da_way_[0]->geo_tag))
+                    .SetPosition(scaler(r->da_way_[0]->geo_tag_))
                     .SetOffset(this->settings_.bus_label_offset_)
                     .SetFontSize(this->settings_.bus_label_font_size_)
                     .SetFontFamily("Verdana")
@@ -65,7 +65,7 @@ namespace rndr {
                     .SetFontWeight("bold")
                     .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
                     .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                    .SetPosition(scaler(r->da_way_[0]->geo_tag))
+                    .SetPosition(scaler(r->da_way_[0]->geo_tag_))
                     .SetOffset(this->settings_.bus_label_offset_)
                     .SetFontSize(this->settings_.bus_label_font_size_)
                     .SetFontFamily("Verdana")
@@ -76,7 +76,7 @@ namespace rndr {
                 svg::Text routs_num_first = svg::Text()
                     .SetFillColor(this->settings_.color_palette_[ptr_clr])
                     .SetFontWeight("bold")
-                    .SetPosition(scaler(r->da_way_[0]->geo_tag))
+                    .SetPosition(scaler(r->da_way_[0]->geo_tag_))
                     .SetOffset(this->settings_.bus_label_offset_)
                     .SetFontSize(this->settings_.bus_label_font_size_)
                     .SetFontFamily("Verdana")
@@ -88,7 +88,7 @@ namespace rndr {
                     .SetFontWeight("bold")
                     .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
                     .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                    .SetPosition(scaler(r->da_way_[0]->geo_tag))
+                    .SetPosition(scaler(r->da_way_[0]->geo_tag_))
                     .SetOffset(this->settings_.bus_label_offset_)
                     .SetFontSize(this->settings_.bus_label_font_size_)
                     .SetFontFamily("Verdana")
@@ -99,7 +99,7 @@ namespace rndr {
                     svg::Text routs_num_second = svg::Text()
                         .SetFillColor(this->settings_.color_palette_[ptr_clr])
                         .SetFontWeight("bold")
-                        .SetPosition(scaler(r->da_way_[r->da_way_.size() - 1]->geo_tag))
+                        .SetPosition(scaler(r->da_way_[r->da_way_.size() - 1]->geo_tag_))
                         .SetOffset(this->settings_.bus_label_offset_)
                         .SetFontSize(this->settings_.bus_label_font_size_)
                         .SetFontFamily("Verdana")
@@ -111,7 +111,7 @@ namespace rndr {
                         .SetFontWeight("bold")
                         .SetStrokeLineCap(svg::StrokeLineCap::ROUND)
                         .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND)
-                        .SetPosition(scaler(r->da_way_[r->da_way_.size() - 1]->geo_tag))
+                        .SetPosition(scaler(r->da_way_[r->da_way_.size() - 1]->geo_tag_))
                         .SetOffset(this->settings_.bus_label_offset_)
                         .SetFontSize(this->settings_.bus_label_font_size_)
                         .SetFontFamily("Verdana")
@@ -132,7 +132,7 @@ namespace rndr {
 
         for (elements::Stop* s : stops_to_draw) {
                 svg::Circle stop_round = svg::Circle()
-                    .SetCenter(scaler(s->geo_tag))
+                    .SetCenter(scaler(s->geo_tag_))
                     .SetRadius(this->settings_.stop_radius_)
                     .SetFillColor("white"s);
                 svg_document.Add(stop_round);
@@ -141,7 +141,7 @@ namespace rndr {
         for (elements::Stop* s : stops_to_draw) {
                 svg::Text routs_back = svg::Text()
                     .SetData(s->name_)
-                    .SetPosition(scaler(s->geo_tag))
+                    .SetPosition(scaler(s->geo_tag_))
                     .SetOffset(this->settings_.stop_label_offset_)
                     .SetFontSize(this->settings_.stop_label_font_size_)
                     .SetFontFamily("Verdana")
@@ -153,7 +153,7 @@ namespace rndr {
                     .SetStrokeLineJoin(svg::StrokeLineJoin::ROUND);
                 svg::Text routs_num = svg::Text()
                     .SetData(s->name_)
-                    .SetPosition(scaler(s->geo_tag))
+                    .SetPosition(scaler(s->geo_tag_))
                     .SetOffset(this->settings_.stop_label_offset_)
                     .SetFontSize(this->settings_.stop_label_font_size_)
                     .SetFontFamily("Verdana")

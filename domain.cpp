@@ -4,7 +4,7 @@
 #include <iomanip>
 
 namespace elements {
-	Bus_rout::Bus_rout(const Bus_rout& route) {
+    BusRout::BusRout(const BusRout& route) {
 		this->cycled_ = route.cycled_;
 		this->stop_count_ = route.stop_count_;
 		this->uniquestop_count_ = route.uniquestop_count_;
@@ -14,7 +14,7 @@ namespace elements {
 		this->number_ = route.number_;
 		this->da_way_ = route.da_way_;
 	}
-	Bus_rout::Bus_rout(Bus_rout&& route) {
+    BusRout::BusRout(BusRout&& route) {
 		this->cycled_ = std::move(route.cycled_);
 		this->stop_count_ = std::move(route.stop_count_);
 		this->uniquestop_count_ = std::move(route.uniquestop_count_);
@@ -25,25 +25,25 @@ namespace elements {
 		this->da_way_ = std::move(route.da_way_);
 	}
 
-	Stop::Stop() {
-		this->name_ = "";
-		this->geo_tag.lat = 0;
-		this->geo_tag.lng = 0;
+    Stop::Stop() {
+        this->name_ = "";
+        this->geo_tag_.lat = 0;
+        this->geo_tag_.lng = 0;
 	}
-	Stop::Stop(const std::string_view name, const double latitude, const double longitude) : name_(name) {
-		this->geo_tag.lat = latitude;
-		this->geo_tag.lng = longitude;
+    Stop::Stop(const std::string_view name, const double latitude, const double longitude) : name_(name) {
+        this->geo_tag_.lat = latitude;
+        this->geo_tag_.lng = longitude;
 	}
-    Stop::Stop(const std::string name, Coordinates coords){
+    Stop::Stop(const std::string name, Coordinates coords) {
         this->name_ = name;
-        this->geo_tag = coords;
+        this->geo_tag_ = coords;
     }
-	Stop::Stop(const Stop& stop) {
-		this->name_ = stop.name_;
-		this->geo_tag = stop.geo_tag;
+    Stop::Stop(const Stop& stop) {
+        this->name_ = stop.name_;
+        this->geo_tag_ = stop.geo_tag_;
 	}
-	Stop::Stop(Stop&& stop) {
-		this->name_ = std::move(stop.name_);
-		this->geo_tag = std::move(stop.geo_tag);
+    Stop::Stop(Stop&& stop) {
+        this->name_ = std::move(stop.name_);
+        this->geo_tag_ = std::move(stop.geo_tag_);
 	}
 }

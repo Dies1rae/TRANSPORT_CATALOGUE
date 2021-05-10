@@ -31,7 +31,7 @@ namespace database{
 		};
 
 		struct Route_Hasher {
-			int operator()(const Bus_rout* Bus_num) const {
+			int operator()(const BusRout* Bus_num) const {
 				int res = 0;
 				int ptr = 1;
 				for (char ch : Bus_num->number_) {
@@ -77,7 +77,7 @@ namespace database{
 			Stop_info() = default;
 			bool opt_ptr = false;
 			std::string_view name_ = "";
-			std::set<Bus_rout*, Route_comparator> routes;
+			std::set<BusRout*, RouteComparator> routes;
 		};
 
 		explicit TransportCatalogue() = default;
@@ -100,11 +100,11 @@ namespace database{
 		void stop_add(const std::string& stop_name, const double lat, const double lng);
 		void stop_add(const Stop& stop);
 		void rout_add(const std::string& rout_raw_data);
-		void rout_add(const Bus_rout& rout);
+		void rout_add(const BusRout& rout);
 		void rout_add(const std::string& rout_name, std::vector<elements::Stop*> stops, bool is_cycled);
 		void stop_to_routes_build();
 		Stop* stop_byname(const std::string_view name);
-		Bus_rout* rout_byname(const std::string_view name);
+		BusRout* rout_byname(const std::string_view name);
 
 		void test_output_bus(const std::string& bus_number);
 		void test_output_stop(const std::string& bus_number);
@@ -119,19 +119,19 @@ namespace database{
 		void setDistance(const std::string_view first,	const std::string_view second, const double meters);
 		int get_Distance_byname(Stop* first, Stop* second);
 
-		std::deque <Bus_rout*>& get_base_routes();
-		std::set<Bus_rout*, elements::Route_comparator>& get_base_routes_uniuqe();
-		std::set<Stop*, elements::Stop_comparator>& get_base_stops_uniuqe();
+		std::deque <BusRout*>& get_base_routes();
+		std::set<BusRout*, elements::RouteComparator>& get_base_routes_uniuqe();
+		std::set<Stop*, elements::StopComparator>& get_base_stops_uniuqe();
 		std::deque <Stop*>& get_base_stops();
 		std::unordered_map<std::pair<Stop*, Stop*>, double, StpPHasher>& get_distances();
-		std::unordered_map<Stop*, std::set<Bus_rout*, Route_comparator>, Stop_Hasher>& get_stop_to_routes_();
+		std::unordered_map<Stop*, std::set<BusRout*, RouteComparator>, Stop_Hasher>& get_stop_to_routes_();
 	private:
-		std::deque <Bus_rout*> base_routes_;
+		std::deque <BusRout*> base_routes_;
 		std::deque <Stop*> base_stops_;
-		std::unordered_map<Stop*, std::set<Bus_rout*, Route_comparator>, Stop_Hasher> stop_to_routes_;
+		std::unordered_map<Stop*, std::set<BusRout*, RouteComparator>, Stop_Hasher> stop_to_routes_;
 		std::unordered_map<std::pair<Stop*, Stop*>, double, StpPHasher> stops_to_distances_;
-		std::set<Stop*, elements::Stop_comparator> unique_stop_;
-		std::set<Bus_rout*, elements::Route_comparator> unique_rout_;
+		std::set<Stop*, elements::StopComparator> unique_stop_;
+		std::set<BusRout*, elements::RouteComparator> unique_rout_;
 	};
 
 	std::ostream& operator<<(std::ostream& out, const TransportCatalogue::Route_info& rout);

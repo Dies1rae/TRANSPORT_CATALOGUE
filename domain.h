@@ -8,21 +8,21 @@
 namespace elements {
 	struct Stop {
 	public:
-		Stop();
-		Stop(const std::string_view name, const double latitude, const double longitude);
+        Stop();
+        Stop(const std::string_view name, const double latitude, const double longitude);
         Stop(const std::string name, Coordinates coords);
-		Stop(const Stop& stop);
-		Stop(Stop&& stop);
+        Stop(const Stop& stop);
+        Stop(Stop&& stop);
 
-		Coordinates geo_tag;
+        Coordinates geo_tag_;
 		std::string name_;
 	};
 
-	struct Bus_rout {
+    struct BusRout {
 	public:
-		Bus_rout() = default;
-		Bus_rout(const Bus_rout& route);
-		Bus_rout(Bus_rout&& route);
+        BusRout() = default;
+        BusRout(const BusRout& route);
+        BusRout(BusRout&& route);
 
 		bool cycled_ = 0;
 		int stop_count_ = 0;
@@ -34,33 +34,33 @@ namespace elements {
 		std::vector<Stop*> da_way_;
 	};
 
-	struct Route_comparator {
-		bool operator() (const Bus_rout* lhs, const Bus_rout* rhs) const {
+    struct RouteComparator {
+        bool operator() (const BusRout* lhs, const BusRout* rhs) const {
 			return std::lexicographical_compare(
 				lhs->number_.begin(), lhs->number_.end(),
 				rhs->number_.begin(), rhs->number_.end()
 			);
-		}
-	};
+        }
+    };
 
-	struct Stop_comparator {
-		bool operator() (const Stop* lhs, const Stop* rhs) const {
-			return std::lexicographical_compare(
-				lhs->name_.begin(), lhs->name_.end(),
-				rhs->name_.begin(), rhs->name_.end()
-			);
-		}
-	};
+    struct StopComparator {
+        bool operator() (const Stop* lhs, const Stop* rhs) const {
+            return std::lexicographical_compare(
+                lhs->name_.begin(), lhs->name_.end(),
+                rhs->name_.begin(), rhs->name_.end()
+            );
+        }
+    };
 
-	struct Stop_compare {
-		bool  operator()(const Stop* lhs, const Stop* rhs) const {
-			return lhs->name_ == rhs->name_;
-		}
-	};
+    struct StopCompare {
+        bool  operator()(const Stop* lhs, const Stop* rhs) const {
+            return lhs->name_ == rhs->name_;
+        }
+    };
 
-	struct Route_compare {
-		bool operator()(const Bus_rout* lhs, const Bus_rout* rhs) const {
-			return lhs->number_ == rhs->number_;
-		}
-	};
+    struct RouteCompare {
+        bool operator()(const BusRout* lhs, const BusRout* rhs) const {
+            return lhs->number_ == rhs->number_;
+        }
+    };
 }

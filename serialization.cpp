@@ -92,7 +92,7 @@ void serialize(std::istream& in) {
         protoDistance->set_meters(distance.meters);
     }
 
-    //Bus_routs
+    //BusRouts
     for (const json::Node* node: busroutes_nides) {
         auto* protoRoute = db.add_routes();
 
@@ -165,7 +165,7 @@ void database_restore(const proto::TransportCatalogue& database, database::Trans
         catalogue.setDistance(database.stop_names(distance.from()), database.stop_names(distance.to()), distance.meters());
     }
 
-    //Bus_routes
+    //BusRoutes
     for (int i = 0; i < database.routes_size(); ++i) {
         std::vector<elements::Stop*> stops;
         for (int j = 0; j < database.routes(i).stop_id_size(); ++j) {

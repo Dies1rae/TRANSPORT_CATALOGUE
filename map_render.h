@@ -42,17 +42,17 @@ namespace rndr {
             }
 
             const auto [left_it, right_it] = std::minmax_element(points_begin, points_end, [](auto lhs, auto rhs) {
-                return lhs->geo_tag.lng < rhs->geo_tag.lng;
+                return lhs->geo_tag_.lng < rhs->geo_tag_.lng;
             });
 
-            min_lon_ = (*left_it)->geo_tag.lng;
-            const double max_lon = (*right_it)->geo_tag.lng;
+            min_lon_ = (*left_it)->geo_tag_.lng;
+            const double max_lon = (*right_it)->geo_tag_.lng;
 
             const auto [bottom_it, top_it] = std::minmax_element(points_begin, points_end, [](auto lhs, auto rhs) {
-                return lhs->geo_tag.lat < rhs->geo_tag.lat;
+                return lhs->geo_tag_.lat < rhs->geo_tag_.lat;
             });
-            const double min_lat = (*bottom_it)->geo_tag.lat;
-            max_lat_ = (*top_it)->geo_tag.lat;
+            const double min_lat = (*bottom_it)->geo_tag_.lat;
+            max_lat_ = (*top_it)->geo_tag_.lat;
 
             std::optional<double> width_zoom;
             if (!this->IsZero(max_lon - min_lon_)) {

@@ -7,13 +7,13 @@
 #include <stdexcept>
 
 namespace database {
-	void TransportCatalogue::rout_add(const Bus_rout& rout) {
-		Bus_rout* tmp_rout = new Bus_rout(rout);
+    void TransportCatalogue::rout_add(const BusRout& rout) {
+        BusRout* tmp_rout = new BusRout(rout);
 		this->base_routes_.push_back(tmp_rout);
 	}
 
 	void TransportCatalogue::rout_add(const std::string& rout_raw_data) {
-		Bus_rout tmp_rout;
+        BusRout tmp_rout;
 		size_t first_space = rout_raw_data.find(' ');
 		size_t doubledotPos = rout_raw_data.find(':');
 		std::string route_name = (rout_raw_data.substr(first_space + 1, doubledotPos - 4));
@@ -46,7 +46,7 @@ namespace database {
 		}
 
 		for (size_t stp_pt = 0; stp_pt + 1 < tmp_rout.da_way_.size(); stp_pt++) {
-			tmp_rout.direct_Length_ += ComputeDistance(tmp_rout.da_way_[stp_pt]->geo_tag, tmp_rout.da_way_[stp_pt + 1]->geo_tag);
+            tmp_rout.direct_Length_ += ComputeDistance(tmp_rout.da_way_[stp_pt]->geo_tag_, tmp_rout.da_way_[stp_pt + 1]->geo_tag_);
 		}
 		if (tmp_rout.cycled_) {
 			tmp_rout.direct_Length_ *= 2;
@@ -64,7 +64,7 @@ namespace database {
 	}
 
 	void TransportCatalogue::rout_add(const std::string& rout_name, std::vector<elements::Stop*> stops, bool is_cycled) {
-		Bus_rout tmp_rout;
+        BusRout tmp_rout;
 		std::set<std::string> unique_stop;
 		for (const auto& stop : stops) {
 			unique_stop.insert(stop->name_);
@@ -82,7 +82,7 @@ namespace database {
 		}
 
         for (int stp_pt = 0; stp_pt + 1 < tmp_rout.da_way_.size(); stp_pt++) {
-			tmp_rout.direct_Length_ += ComputeDistance(tmp_rout.da_way_[stp_pt]->geo_tag, tmp_rout.da_way_[stp_pt + 1]->geo_tag);
+            tmp_rout.direct_Length_ += ComputeDistance(tmp_rout.da_way_[stp_pt]->geo_tag_, tmp_rout.da_way_[stp_pt + 1]->geo_tag_);
 		}
 		if (!tmp_rout.cycled_) {
 			tmp_rout.direct_Length_ *= 2;
@@ -108,16 +108,16 @@ namespace database {
 	void TransportCatalogue::stop_add(const std::string& stop_name, const std::string& lat, const std::string& lng) {
 		Stop tmp_stop;
 		tmp_stop.name_ = stop_name;
-		tmp_stop.geo_tag.lat = std::stod(std::string(lat).c_str());
-		tmp_stop.geo_tag.lng = std::stod(std::string(lng).c_str());
+        tmp_stop.geo_tag_.lat = std::stod(std::string(lat).c_str());
+        tmp_stop.geo_tag_.lng = std::stod(std::string(lng).c_str());
 		this->stop_add(tmp_stop);
 	}
 
 	void TransportCatalogue::stop_add(const std::string& stop_name, const double lat, const double lng) {
 		Stop tmp_stop;
 		tmp_stop.name_ = stop_name;
-		tmp_stop.geo_tag.lat = lat;
-		tmp_stop.geo_tag.lng = lng;
+        tmp_stop.geo_tag_.lat = lat;
+        tmp_stop.geo_tag_.lng = lng;
 		this->stop_add(tmp_stop);
 	}
 
@@ -127,8 +127,8 @@ namespace database {
 				std::cout << "Bus " << buses->number_ << ": ";
 				for (auto stop : buses->da_way_) {
 					std::cout << stop->name_ << " lat: ";
-					std::cout << std::setprecision(6) << stop->geo_tag.lat << " lng: ";
-					std::cout << std::setprecision(6) << stop->geo_tag.lng << " ";
+                    std::cout << std::setprecision(6) << stop->geo_tag_.lat << " lng: ";
+                    std::cout << std::setprecision(6) << stop->geo_tag_.lng << " ";
 				}
 				std::cout << std::endl;
 				break;
@@ -141,8 +141,8 @@ namespace database {
 			if (stops->name_.find(stop_name) != std::string::npos) {
 				std::cout << "Stop " << stops->name_ << std::endl;
 				std::cout << "lat ";
-				std::cout << std::setprecision(6) << stops->geo_tag.lat << " | lng ";
-				std::cout << std::setprecision(6) << stops->geo_tag.lng;
+                std::cout << std::setprecision(6) << stops->geo_tag_.lat << " | lng ";
+                std::cout << std::setprecision(6) << stops->geo_tag_.lng;
 				std::cout << std::endl;
 				break;
 			}
@@ -155,8 +155,8 @@ namespace database {
 				std::cout << "Bus " << buses->number_ << ": ";
 				for (auto stop : buses->da_way_) {
 					std::cout << stop->name_ << " lat: ";
-					std::cout << std::setprecision(6) << stop->geo_tag.lat << " lng: ";
-					std::cout << std::setprecision(6) << stop->geo_tag.lng << " ";
+                    std::cout << std::setprecision(6) << stop->geo_tag_.lat << " lng: ";
+                    std::cout << std::setprecision(6) << stop->geo_tag_.lng << " ";
 				}
 				std::cout << std::setprecision(6) << buses->length_ << " ";
 				std::cout << std::endl;
@@ -171,8 +171,8 @@ namespace database {
 			if (stops->name_.find(stop_name) != std::string::npos) {
 				std::cout << "Stop " << stops->name_ << std::endl;
 				std::cout << "lat ";
-				std::cout << std::setprecision(6) << stops->geo_tag.lat << " | lng ";
-				std::cout << std::setprecision(6) << stops->geo_tag.lng;
+                std::cout << std::setprecision(6) << stops->geo_tag_.lat << " | lng ";
+                std::cout << std::setprecision(6) << stops->geo_tag_.lng;
 				std::cout << std::endl;
 				return;
 			}
@@ -186,11 +186,11 @@ namespace database {
 		}
 	}
 
-	std::deque <Bus_rout*>& TransportCatalogue::get_base_routes() {
+    std::deque <BusRout*>& TransportCatalogue::get_base_routes() {
 		return this->base_routes_;
 	}
 
-	std::set<Bus_rout*,elements::Route_comparator>& TransportCatalogue::get_base_routes_uniuqe() {
+    std::set<BusRout*,elements::RouteComparator>& TransportCatalogue::get_base_routes_uniuqe() {
 		return this->unique_rout_;
 	}
 
@@ -198,7 +198,7 @@ namespace database {
 		return this->base_stops_;
 	}
 
-	std::set<Stop*, elements::Stop_comparator>& TransportCatalogue::get_base_stops_uniuqe() {
+    std::set<Stop*, elements::StopComparator>& TransportCatalogue::get_base_stops_uniuqe() {
 		return this->unique_stop_;
 	}
 
@@ -215,7 +215,7 @@ namespace database {
 		return nullptr;
 	}
 
-	Bus_rout* TransportCatalogue::rout_byname(const std::string_view name) {
+    BusRout* TransportCatalogue::rout_byname(const std::string_view name) {
 		for (size_t rt_pt = 0; rt_pt < this->base_routes_.size(); rt_pt++) {
 			if (this->base_routes_[rt_pt]->number_ == name) {
 				return this->base_routes_[rt_pt];
@@ -231,7 +231,7 @@ namespace database {
 			return result;
 		}
 
-		Bus_rout* route = this->rout_byname(bus_number);
+        BusRout* route = this->rout_byname(bus_number);
 	
 		result.stop_Count_ = route->stop_count_;
 		result.unique_Stop_Count_ = route->uniquestop_count_;
@@ -257,7 +257,7 @@ namespace database {
 
 	void TransportCatalogue::stop_to_routes_build() {
 		for (size_t stp_pt = 0; stp_pt < this->base_stops_.size(); stp_pt++) {
-			std::set<Bus_rout*, Route_comparator> tmp_routes;
+            std::set<BusRout*, RouteComparator> tmp_routes;
 			for (size_t rt_pt = 0; rt_pt < this->base_routes_.size(); rt_pt++) {
 				if (std::find(this->base_routes_[rt_pt]->da_way_.begin(), this->base_routes_[rt_pt]->da_way_.end(), this->base_stops_[stp_pt]) != this->base_routes_[rt_pt]->da_way_.end()) {
 					tmp_routes.insert(this->base_routes_[rt_pt]);
@@ -307,7 +307,7 @@ namespace database {
 		return 0;
 	}
 
-	std::unordered_map<Stop*, std::set<Bus_rout*, Route_comparator>, TransportCatalogue::Stop_Hasher>& TransportCatalogue::get_stop_to_routes_() {
+    std::unordered_map<Stop*, std::set<BusRout*, RouteComparator>, TransportCatalogue::Stop_Hasher>& TransportCatalogue::get_stop_to_routes_() {
 		return this->stop_to_routes_;
 	}
 
@@ -329,7 +329,7 @@ namespace database {
 			out << "no buses";
 		} else {
 			out << "buses";
-			for (const Bus_rout* route : stop.routes) {
+            for (const BusRout* route : stop.routes) {
 				out << " " << route->number_;
 			}
 		}
