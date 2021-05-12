@@ -35,20 +35,20 @@ void serialize(std::istream& in) {
 
     const json::Node& baseRequests = rawRequests.GetRoot().AsMap().at("base_requests");
     std::vector<const json::Node*> stop_nodes;
-    std::vector<const json::Node*> busroutes_nides;
+    std::vector<const json::Node*> BusRoutees_nides;
     for (const json::Node& n: baseRequests.AsArray()) {
         if (n.AsMap().at("type"s).AsString() == "Stop"s) {
             stop_nodes.push_back(&n);
             continue;
         }
         if (n.AsMap().at("type"s).AsString() == "Bus"s) {
-            busroutes_nides.push_back(&n);
+            BusRoutees_nides.push_back(&n);
             continue;
         }
         throw json::ParsingError("Base request parsing error"s);
     }
     database::TransportCatalogue catalogue;
-    json_reader::fillDataBase(catalogue, stop_nodes, busroutes_nides);
+    json_reader::fillDataBase(catalogue, stop_nodes, BusRoutees_nides);
 
     proto::TransportCatalogue db;
 
@@ -87,7 +87,7 @@ void serialize(std::istream& in) {
         protoDistance->set_meters(distance.meters);
     }
 
-    for (const json::Node* node: busroutes_nides) {
+    for (const json::Node* node: BusRoutees_nides) {
         auto* protoRoute = db.add_routes();
 
         std::string name = node->AsMap().at("name"s).AsString();

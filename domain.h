@@ -18,11 +18,11 @@ namespace elements {
 		std::string name_;
 	};
 
-    struct BusRout {
+    struct BusRoute {
 	public:
-        BusRout() = default;
-        BusRout(const BusRout& route);
-        BusRout(BusRout&& route);
+        BusRoute() = default;
+        BusRoute(const BusRoute& route);
+        BusRoute(BusRoute&& route);
 
 	    bool cycled_ = 0;
 	    int stop_count_ = 0;
@@ -35,7 +35,7 @@ namespace elements {
 	};
 
     struct RouteComparator {
-        bool operator() (const BusRout* lhs, const BusRout* rhs) const {
+        bool operator() (const BusRoute* lhs, const BusRoute* rhs) const {
 	        return std::lexicographical_compare(
 		        lhs->number_.begin(), lhs->number_.end(),
 		        rhs->number_.begin(), rhs->number_.end()
@@ -59,7 +59,7 @@ namespace elements {
     };
 
     struct RouteCompare {
-        bool operator()(const BusRout* lhs, const BusRout* rhs) const {
+        bool operator()(const BusRoute* lhs, const BusRoute* rhs) const {
             return lhs->number_ == rhs->number_;
         }
     };

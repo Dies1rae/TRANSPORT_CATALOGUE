@@ -11,7 +11,7 @@
 json::Node makeStopAnswer(const int request_id, const TransportCatalogue::StopInfo& data) {
     json::Builder b_;
     b_.StartArray();
-    for (elements::BusRout* r : data.routes) {
+    for (elements::BusRoute* r : data.routes) {
         b_.Value(r->number_);
     }
     json::Node tmp = b_.EndArray().Build();

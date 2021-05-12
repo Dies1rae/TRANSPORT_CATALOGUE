@@ -12,7 +12,7 @@ namespace rndr {
 	std::string map_renderer::render_map() const {
         using namespace std::literals;
 
-        std::set<elements::BusRout*, elements::RouteComparator> routes_to_draw = this->catalogue_.get_base_routes_uniuqe();
+        std::set<elements::BusRoute*, elements::RouteComparator> routes_to_draw = this->catalogue_.get_base_routes_uniuqe();
         std::set<elements::Stop*, elements::StopComparator> stops_to_draw = this->catalogue_.get_base_stops_uniuqe();
         
         MapScaler scaler(stops_to_draw.begin(), stops_to_draw.end(), this->settings_.width_, this->settings_.height_, this->settings_.padding_);

@@ -4,7 +4,7 @@
 #include <iomanip>
 
 namespace elements {
-    BusRout::BusRout(const BusRout& route) {
+    BusRoute::BusRoute(const BusRoute& route) {
 	    this->cycled_ = route.cycled_;
 	    this->stop_count_ = route.stop_count_;
 	    this->uniquestop_count_ = route.uniquestop_count_;
@@ -14,7 +14,7 @@ namespace elements {
 	    this->number_ = route.number_;
 	    this->da_way_ = route.da_way_;
     }
-    BusRout::BusRout(BusRout&& route) {
+    BusRoute::BusRoute(BusRoute&& route) {
 	    this->cycled_ = std::move(route.cycled_);
 	    this->stop_count_ = std::move(route.stop_count_);
 	    this->uniquestop_count_ = std::move(route.uniquestop_count_);

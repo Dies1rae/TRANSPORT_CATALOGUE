@@ -35,10 +35,10 @@ namespace database {
 
     struct TripItem {
         TripItem() = default;
-        TripItem(Stop* f, Stop* t, BusRout* r, TripTime trip_info) : from(f), to(t), route(r), Trip_item(trip_info) {}
+        TripItem(Stop* f, Stop* t, BusRoute* r, TripTime trip_info) : from(f), to(t), route(r), Trip_item(trip_info) {}
         Stop* from = nullptr;
         Stop* to = nullptr;
-        BusRout* route = nullptr;
+        BusRoute* route = nullptr;
         TripTime Trip_item = {};
     };
     std::ostream& operator<<(std::ostream& out, const TripItem& item);
@@ -56,7 +56,7 @@ namespace database {
                 this->graphVertexes_[S] = ctr++;
             }
 
-            for (BusRout* R : this->catalogue_.get_base_routes_uniuqe()) {
+            for (BusRoute* R : this->catalogue_.get_base_routes_uniuqe()) {
                 distances_range(R);
                 for (int s = 0; s + 1 < R->da_way_.size(); s++) {
                     for (int s1 = s + 1; s1 < R->da_way_.size(); s1++) {
@@ -70,11 +70,11 @@ namespace database {
             this->searching_edges_ = new graph::Router<TripTime>(*this->graph_);
         }
 
-        void distances_range(const BusRout* rout);
+        void distances_range(const BusRoute* rout);
 
         double distanceBetween(const size_t from, const size_t to);
 
-        void addTripItem(Stop* from, Stop* to, BusRout* route, TripTime&& trip_info);
+        void addTripItem(Stop* from, Stop* to, BusRoute* route, TripTime&& trip_info);
 
         std::optional<std::vector <TripItem>> findRoute(const std::string_view from, const std::string_view to);
 	private:

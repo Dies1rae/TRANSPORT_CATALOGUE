@@ -22,7 +22,7 @@ namespace database {
         return out;
     }
 
-    void transport_router::distances_range(const BusRout* rout) {
+    void transport_router::distances_range(const BusRoute* rout) {
         this->direct_dist_.resize(rout->da_way_.size());
         this->reverse_dist_.resize(rout->da_way_.size());
         double directDistanceSum = 0.0;
@@ -43,7 +43,7 @@ namespace database {
         }
     }
 
-    void transport_router::addTripItem(Stop* from, Stop* to, BusRout* route, TripTime&& trip_info) {
+    void transport_router::addTripItem(Stop* from, Stop* to, BusRoute* route, TripTime&& trip_info) {
         TripItem item{ from, to, route, std::move(trip_info) };
         int id = this->graph_->AddEdge(graph::Edge<TripTime>{this->graphVertexes_[item.from], this->graphVertexes_[item.to], item.Trip_item});
         this->graphEdges_.push_back(std::move(item));
